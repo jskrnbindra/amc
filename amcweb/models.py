@@ -1,8 +1,4 @@
-from django.db import models
-
 from mongoengine import *
-
-# Create your models here.
 
 
 class Appointment(EmbeddedDocument):
@@ -13,7 +9,7 @@ class Appointment(EmbeddedDocument):
 
     uid = IntField(min_value=1, unique=True, requied=True)
     datetime = DateTimeField(required=True)
-    # patient = EmbeddedDocumentField(Patient)
+    # patientID = IntField(min_value=1)
     new_patient = BooleanField(required=True)
     requested_on = DateTimeField(requied=True)
     purpose = StringField(max_length=500)
@@ -28,15 +24,14 @@ class Prescription(EmbeddedDocument):
     meta = {'collection': 'prescriptions'}
 
     uid = IntField(min_value=1, unique=True, requied=True)
-    # patient = EmbeddedDocument(Patient, requied=True)
+    # patientID = IntField(min_value=1)
     given_on = DateTimeField(required=True)
-    # appointment = EmbeddedDocument(Appointment)
+    appointmentID = IntField(min_value=1)
     problem = StringField(max_length=100)  # populate if no appointment
     feedback = StringField(choices=['positive', 'negative'])
-    rating = IntField(choices=[1,2,3,4,5,6,7,8,9,10])
+    rating = IntField(choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     rx = StringField(max_length=1000)  # actual prescription
     comments = StringField(max_length=10000)
-
 
 
 class Patient(Document):
@@ -65,12 +60,12 @@ class Patient(Document):
     # previous visits from appointment where turnedup = True
 
 
-
-
 class Counter(Document):
     """
     Maintains all the counters used in mongo.
     Used to perform auto-increment on fields.
     """
+    meta = {'collection': 'counters'}
+
     name = StringField(max_length=10)
     count = IntField(min_value=1)
