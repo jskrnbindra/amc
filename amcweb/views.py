@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 
 from datetime import datetime, date
 
@@ -8,6 +9,15 @@ from .models import Appointment, Patient, Prescription
 
 
 def index(request):
-    html = ''
+    patients = Patient.objects.all()
+    context = {
+        'patients': patients
+    }
 
-    return HttpResponse(f'This works {html}')
+    return render(request, 'amcweb/index.html', context)
+
+
+def reciever(request, pat_id):
+    print(f'Received patient id: {pat_id}')
+
+    return HttpResponse('Done')

@@ -27,12 +27,13 @@ SECRET_KEY = 'gb(yh_ir-w$de2tfk&f(^$nz2^wi3+#0bt900kfi&mdyx!5*bl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'amcweb.apps.AmcwebConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

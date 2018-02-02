@@ -1,0 +1,22 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'amcweb/lpstyle.css' %}" />
+<h1> TIJAT</h1>
+
+    {% if patients %}
+<form name="testform" method="post">
+    {% csrf_token %}
+<ul>
+    {% for patient in patients %}
+    {% if patient.uid|divisibleby:2 %}
+        <a href="{% url 'amcweb:reciever' patient.uid%}">{{patient.uid}} - {{patient.first_name}}</a>
+    {% else %}
+        <strong><a href="{% url 'amcweb:reciever' patient.uid%}">{{patient.uid}} - {{patient.first_name}}</a></strong>
+    {% endif %}
+    {% endfor %}
+</ul>
+    <!--<input type="submit" name="sendpatid" value="Submit now" />-->
+</form>
+{% else %}
+    <strong>Fetching bro...</strong>
+{% endif %}
