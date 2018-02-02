@@ -1,2 +1,9 @@
-# amc
-Website for Ayurveda Multispeciality Centre, Ludhiana
+# ayurvedaludhiana.com
+
+Website for Ayurveda Multispeciality Centre, Ludhiana.
+
+#### Tech stack
+Django
+MongoDB
+Bootstrap
+
