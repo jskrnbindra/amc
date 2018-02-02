@@ -6,9 +6,16 @@ from . import models
 
 
 def index(request):
-    billu = models.Patient(next_count('Patient'), 'bhalus', contact=['9988355277']).save()
-    appo = models.Appointment(next_count('Appointment'), datetime=date(2018, 1, 21), new_patient=False, requested_on=date(2017, 12, 22), patient=billu.__dict__)
-    presc = models.Prescription(next_count('Prescription'), patient=billu.__dict__, given_on=date(2018, 1, 21), appointment=appo.__dict__, problem='godeyan ch dard', feedback='positive', rating=8, rx='roz nahao bai ji').save()
+
+    # presc = models.Prescription(next_count('Prescription'), given_on=date(2018, 1, 21))
+    # appo = models.Appointment(next_count('Appointment'), datetime=date(2018, 1, 11), new_patient=False, requested_on=date(2018, 1, 21))
+    # apps = []
+    # prescs = []
+    # apps.append(appo)
+    # prescs.append(presc)
+    # pat = models.Patient(next_count('Patients'), first_name="billa badmash", contact=['998899889988'], prescriptions=prescs, appointments=apps)
+    #
+    print(models.Patient.objects.get(uid=9).prescriptions.get(uid=15).given_on)
 
     return HttpResponse('This works')
 
