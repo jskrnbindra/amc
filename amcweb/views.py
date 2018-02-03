@@ -21,6 +21,14 @@ class Appointment(FormView):
         form.send_email()
         return super().form_valid(form)
 
+    def form_invalid(self, form):
+        print('caught the invalid form bro')
+        print(form.errors)
+
+        return super().form_invalid(form)
+
+
+
 
 class About(TemplateView):
     template_name = 'amcweb/about.html'
