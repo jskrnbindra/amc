@@ -1,13 +1,35 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import loader
+from django.views.generic.base import TemplateView
+from django.views.generic.edit import FormView
 
-from datetime import datetime, date
-
-from amcweb.utils.mongo_utils import next_count
+from .forms import AppointmentForm
 from .models import Appointment, Patient, Prescription
 
 
-def index(request):
-    return render(request, 'amcweb/index.html', {})
+class Index(TemplateView):
+    template_name = 'amcweb/index.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
+class Appointment(FormView):
+    template_name = 'amcweb/appointment.html'
+    form_class = AppointmentForm
+    success_url = '/appointment'
+
+    def form_valid(self, form):
+
+        print(form.cleaned_data)
+        form.send_email()
+        return super().form_valid(form)
+
+
+class About(TemplateView):
+    template_name = 'amcweb/about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

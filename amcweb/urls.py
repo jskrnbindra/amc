@@ -5,5 +5,8 @@ from . import views
 
 app_name = 'amcweb'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.Index.as_view(), name='index'),
+    path('index', views.Index.as_view(), name='index'),
+    path('appointment', views.Appointment.as_view(), name='appointment'),
+    path('about', views.About.as_view(), name='about'),
 ]
