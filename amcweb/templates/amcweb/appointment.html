@@ -1,20 +1,43 @@
 {% extends 'amcweb/master.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}Make an appointment :: AMC Ludhiana{% endblock %}
 {% block head_last %}
 	<link href="{% static 'amcweb/css/appointment_style.css' %}" rel="stylesheet" type="text/css" media="all" />
 {% endblock %}
 {% block main_content %}
+<script type="text/javascript" src="{% static 'amcweb/js/jquery-2.1.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'amcweb/js/moment.js' %}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
 <div class="banner_inner_content_agile_amcl">
 
 </div>
 	<!--//banner -->
     <form action="" method="post">
         {% csrf_token %}
-        {{ form.name.errors }}
-        {{ form.name }}
-        {{ form.name.label_tag }}
+<div class="container">
+    <div class="col-sm-6" style="height:130px;">
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker11'>
+                {{ form.visiting_on|add_class:'form-control'|attr:'placeholder:MM/DD/YYYY hh:mm' }}
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar">
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker11').datetimepicker({
+                daysOfWeekDisabled: [0, 6],
+                format: 'MM/DD/Y HH:mm',
+            });
+        });
+    </script>
+</div>
 
         <input type="submit" value="Send message" />
     </form>
