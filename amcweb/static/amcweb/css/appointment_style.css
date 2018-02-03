@@ -49,6 +49,9 @@ a:focus, a:hover {
 	text-decoration: none;
 	outline: none;
 }
+.form-input2 textarea {
+    resize: vertical;
+}
 /*-- //Reset-Code --*/
 
 .amcls-banner {
@@ -93,7 +96,6 @@ a:focus, a:hover {
     -moz-box-shadow: 0px 1px 8px 0px rgba(158, 158, 158, 0.75);
     box-shadow: 0px 1px 8px 0px rgba(158, 158, 158, 0.75);
 }
-
 label.form-label {
     display: inline-block;
     width: 30%;

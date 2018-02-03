@@ -7,11 +7,11 @@ from .forms import AppointmentForm
 from .models import Appointment, Patient, Prescription
 
 
-class Index(TemplateView):
-    template_name = 'amcweb/index.html'
+class About(TemplateView):
+    template_name = 'amcweb/about.html'
 
 
-class Appointment(FormView):
+class MakeAppointment(FormView):
     template_name = 'amcweb/appointment.html'
     form_class = AppointmentForm
     success_url = '/appointment'
@@ -28,7 +28,5 @@ class Appointment(FormView):
         return super().form_invalid(form)
 
 
-
-
-class About(TemplateView):
-    template_name = 'amcweb/about.html'
+class Index(TemplateView):
+    template_name = 'amcweb/index.html'
