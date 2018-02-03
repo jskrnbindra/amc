@@ -20,9 +20,10 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
-	<link href="{% static 'amcweb/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'amcweb/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{% static 'amcweb/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{% static 'amcweb/css/font-awesome.css' %}" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
     {% block head_last %}{% endblock %}
 </head>
@@ -156,7 +157,6 @@
 	<!-- //footer -->
 
 	<!-- js -->
-	<script type="text/javascript" src="{% static 'amcweb/js/jquery-2.1.4.min.js' %}"></script>
 	<script>
 		$('ul.dropdown-menu li').hover(function () {
 			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);

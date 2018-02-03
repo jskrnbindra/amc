@@ -34,6 +34,7 @@ DEBUG = True
 
 INSTALLED_APPS = [
     'amcweb.apps.AmcwebConfig',
+    'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
