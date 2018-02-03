@@ -1,0 +1,170 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{% block title %}Ayurveda Multispeciality Centre, Ludhiana{% endblock %}</title>
+    {% block head_first %}{% endblock %}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="New Clinic Responsive web template, Bootstrap Web Templates, Flat Web Templates,
+	    Android Compatible web template,Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
+	    SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript">
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="{% static 'amcweb/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static 'amcweb/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static 'amcweb/css/font-awesome.css' %}" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
+    {% block head_last %}{% endblock %}
+</head>
+
+<body>
+	<!-- header -->
+	<div class="header" id="home">
+		<div class="top_menu_Sodhis">
+<div class="container">
+			<div class="header_left">
+				<ul>
+					<li><i class="fa fa-map-marker" aria-hidden="true"></i> 1143 New York, USA</li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i> +(010) 221 918 811</li>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+				</ul>
+			</div>
+			<div class="header_right">
+				<ul class="forms_right">
+					<li><a href="appointment"> Make an Appointment</a> </li>
+				</ul>
+
+			</div>
+			<div class="clearfix"> </div>
+			</div>
+		</div>
+
+		<div class="content white">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+						<a class="navbar-brand" href="index">
+							<h1><span class="fa fa-stethoscope" aria-hidden="true"></span>New Clinic </h1>
+						</a>
+					</div>
+					<!--/.navbar-header-->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<nav>
+							<ul class="nav navbar-nav">
+								<li><a href="index" class="active">Home</a></li>
+								<li><a href="about">About</a></li>
+
+								<li><a href="departments">Departments</a></li>
+								<li><a href="gallery">Gallery</a></li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="codes">Codes</a></li>
+										<li class="divider"></li>
+										<li><a href="icons">Icons</a></li>
+										<li class="divider"></li>
+
+									</ul>
+								</li>
+								<li><a href="mail">Mail Us</a></li>
+							</ul>
+						</nav>
+					</div>
+					<!--/.navbar-collapse-->
+					<!--/.navbar-->
+				</div>
+			</nav>
+		</div>
+	</div>
+
+    {% block main_content %}
+        <strong>No content found for this page. This is an error. Report to webmaster.</strong>
+    {% endblock %}
+
+	<!-- footer -->
+	<div class="footer_top_agile_amcls">
+		<div class="container">
+			<div class="col-md-3 footer_grid">
+				<h3>About Us</h3>
+				<p>Nam libero tempore cum vulputate id est id, pretium semper enim. Morbi viverra congue eros.
+
+				</p>
+
+			</div>
+			<div class="col-md-3 footer_grid">
+				<h3>Latest News</h3>
+				<ul class="footer_grid_list">
+					<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+						<a href="#" data-toggle="modal" data-target="#myModal">Lorem ipsum neque vulputate </a>
+					</li>
+					<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+						<a href="#" data-toggle="modal" data-target="#myModal">Dolor amet sed quam vitae</a>
+					</li>
+					<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+						<a href="#" data-toggle="modal" data-target="#myModal">Lorem ipsum neque, vulputate </a>
+					</li>
+					<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+						<a href="#" data-toggle="modal" data-target="#myModal">Dolor amet sed quam vitae</a>
+					</li>
+					<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+						<a href="#" data-toggle="modal" data-target="#myModal">Lorem ipsum neque, vulputate </a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3 footer_grid">
+				<h3>Contact Info</h3>
+				<ul class="address">
+					<li><i class="fa fa-map-marker" aria-hidden="true"></i>8088 USA, Honey block, <span>New York City.</span></li>
+					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i>+09187 8088 9436</li>
+				</ul>
+			</div>
+			<div class="col-md-3 footer_grid ">
+				<h3>Sign up for our Newsletter</h3>
+				<p>Get Started For Free</p>
+				<div class="footer_grid_right">
+
+					<form action="#" method="post">
+						<input type="email" name="Email" placeholder="Email Address..." required="">
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+
+		</div>
+	</div>
+	<div class="footer_wthree_agile">
+		<p>© 2018 New Clinic. All rights reserved | Website by <a href="http://www.facebook.com/jskrnbindra">JskrnBindra</a></p>
+	</div>
+	<!-- //footer -->
+
+	<!-- js -->
+	<script type="text/javascript" src="{% static 'amcweb/js/jquery-2.1.4.min.js' %}"></script>
+	<script>
+		$('ul.dropdown-menu li').hover(function () {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+		}, function () {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+		});
+	</script>
+	<script type="text/javascript" src="{% static 'amcweb/js/bootstrap.js' %}"></script>
+</body>
+
+</html>
