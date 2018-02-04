@@ -7,7 +7,6 @@
 	<link href="{% static 'amcweb/css/appointment_style.css' %}" rel="stylesheet" type="text/css" media="all" />
 {% endblock %}
 {% block main_content %}
-<script type="text/javascript" src="{% static 'amcweb/js/jquery-2.1.4.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'amcweb/js/moment.js' %}"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
@@ -35,6 +34,7 @@
 							</label>
 							<div class="form-input">
                                 {{ form.name|attr:'placeholder:Enter Patients Name' }}
+                                {{ form.name.errors }}
 							</div>
 						</li>
 						<li>
@@ -44,6 +44,7 @@
 							</label>
 							<div class="form-input">
                                 {{ form.gender }}
+                                {{ form.gender.errors }}
 							</div>
 						<li>
 						<li>
@@ -53,6 +54,7 @@
 							</label>
                             <div class="form-input">
                                 {{ form.birth_year }}
+                                {{ form.birth_year.errors }}
                             </div>
 						</li>
 						<li>
@@ -62,6 +64,7 @@
 							</label>
 							<div class="form-input">
                                 {{ form.contact|attr:'placeholder:Mobile Number' }}
+                                {{ form.contact.errors }}
 							</div>
 						</li>
                         <li>
@@ -71,6 +74,7 @@
 							</label>
 							<div class="form-input">
                                 {{ form.email|attr:'placeholder:myname@example.com' }}
+                                {{ form.email.errors }}
 							</div>
 						</li>
                         <li>
@@ -91,15 +95,16 @@
                                             </div>
                                         </div>
                                     </div>
-            <script type="text/javascript">
-                $(function () {
-                    $('#datetimepicker11').datetimepicker({
-                        daysOfWeekDisabled: [0, 6],
-                        format: 'MM/DD/Y HH:mm',
-                    });
-                });
-            </script>
-        </div>
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $('#datetimepicker11').datetimepicker({
+                                                daysOfWeekDisabled: [0],
+                                                format: 'MM/DD/Y HH:mm',
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                                {{ form.visitin_on.errors }}
                             </div>
 						</li>
                         <li>
@@ -109,6 +114,7 @@
 							</label>
 							<div class="form-input">
 								{{ form.purpose }}
+                                {{ form.purpose.errors }}
 							</div>
 						</li>
 						<li>
@@ -116,7 +122,8 @@
 								Mention any comments here. (optional)
 							</label>
 							<div class="form-input2">
-								{{ form.comment|attr:'rows:3'|attr:'placeholder:For ex: Patient is sensitive to loud sound.' }}
+								{{ form.comment|attr:'rows:3'|attr:'placeholder:For ex: Mention any prolonged illness patient might be suffering from.' }}
+                                {{ form.comment.errors }}
 							</div>
 						</li>
 					</ul>
