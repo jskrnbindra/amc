@@ -3,6 +3,7 @@ from datetime import date
 from django import forms
 
 from .config import APPOINTMENT_TYPES
+from .models import Patient
 
 
 def required_msg(required_suffix):
@@ -27,6 +28,7 @@ class AppointmentForm(forms.Form):
     visiting_on = forms.DateTimeField(input_formats=['%m/%d/%Y %H:%M'], error_messages=get_errors('visiting date', 'a visiting date'))
     purpose = forms.ChoiceField(choices=[(-1, '--')] + [(x, x) for i, x in enumerate(APPOINTMENT_TYPES)], error_messages=get_errors('appointment type', 'an appointment type'))
     comment = forms.RegexField(strip=True, regex='^[a-zA-Z0-9. ]+$', required=False, max_length=500, widget=forms.Textarea, error_messages=get_errors('comment', 'comment'))
+    patient_id = forms.IntegerField(required=False, min_value=1, error_messages=get_errors('patient number', 'your patient number'))
 
     def clean_gender(self):
         if self.cleaned_data['gender'] == '-1':
@@ -45,6 +47,14 @@ class AppointmentForm(forms.Form):
             raise forms.ValidationError('You forgot to select an appointment type.🤷‍')
         else:
             return self.cleaned_data['purpose']
+
+    def clean_patient_id(self):
+        if self.cleaned_data['patient_id']:
+            patient_id = int(self.cleaned_data['patient_id'])
+            existing = Patient.objects(uid=patient_id)
+            self.cleaned_data['patient'] = None if not existing else existing[0]
+
+        return self.cleaned_data['patient_id']
 
     def send_email(self):
         print('send email')
