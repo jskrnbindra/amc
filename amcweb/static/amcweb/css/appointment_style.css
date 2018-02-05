@@ -51,6 +51,7 @@ a:focus, a:hover {
 }
 .form-input2 textarea {
     resize: vertical;
+    padding: 5px;
 }
 /*-- //Reset-Code --*/
 

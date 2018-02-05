@@ -19,119 +19,127 @@
 		<h1>Appoint My Doctor</h1>
 	</div>
     <div class="container_1">
-			<div class="heading">
-				<h2>Please Enter Patients Details</h2>
-				<p>Fill the form below and submit your query we will contact you as soon as possible.</p>
-			</div>
-            <form id="appointment-form" action="" method="post">
-                {% csrf_token %}
-			    <div class="agile-form">
-					<ul class="field-list">
-						<li>
-							<label class="form-label">
-								Full Name
-								<span class="form-required"> * </span>
-							</label>
-							<div class="form-input">
-                                {{ form.name|attr:'placeholder:Enter Patients Name' }}
-                                {{ form.name.errors }}
-							</div>
-						</li>
-						<li>
-							<label class="form-label">
-							   Gender
-							   <span class="form-required"> * </span>
-							</label>
-							<div class="form-input">
-                                {{ form.gender }}
-                                {{ form.gender.errors }}
-							</div>
-						<li>
-						<li>
-							<label class="form-label">
-							   Year of Birth
-							   <span class="form-required"> * </span>
-							</label>
-                            <div class="form-input">
-                                {{ form.birth_year }}
-                                {{ form.birth_year.errors }}
-                            </div>
-						</li>
-						<li>
-							<label class="form-label">
-							   Mobile Number
-							   <span class="form-required"> * </span>
-							</label>
-							<div class="form-input">
-                                {{ form.contact|attr:'placeholder:Mobile Number' }}
-                                {{ form.contact.errors }}
-							</div>
-						</li>
-                        <li>
-							<label class="form-label">
-							   E-Mail Address
-							   <!--<span class="form-required"> * </span>-->
-							</label>
-							<div class="form-input">
-                                {{ form.email|attr:'placeholder:myname@example.com' }}
-                                {{ form.email.errors }}
-							</div>
-						</li>
-                        <li>
-							<label class="form-label">
-							   Visiting on
-							   <span class="form-required"> * </span>
-							</label>
-                            <div class="form-input">
-                                <div id="DateTimePicker">
-                                    <div class="col-sm-6" style="padding:0">
-                                        <div class="form-group">
-                                            <div class='input-group date' id='datetimepicker11'>
-                                                {{ form.visiting_on|add_class:'form-control'|attr:'placeholder:MM/DD/YYYY hh:mm' }}
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar">
-                                                    </span>
+        <div class="heading">
+            <h2>Please Enter Patients Details</h2>
+            <p>Fill the form below and submit your query we will contact you as soon as possible.</p>
+        </div>
+        <form id="appointment-form" action="" method="post">
+            {% csrf_token %}
+            <div class="agile-form">
+                <ul class="field-list">
+                    <li class="existing-patient">
+                        <label class="form-label">
+                            Already have your patient number?
+                        </label>
+                        <div class="form-input">
+                            {{ form.patient_id|attr:'placeholder:Enter patient number' }}
+                            {{ form.patient_id.errors }}
+                        </div>
+                    </li>
+                    <li class="non-existing-patient">
+                        <label class="form-label">
+                            Full Name
+                            <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input">
+                            {{ form.name|attr:'placeholder:Enter Patients Name' }}
+                            {{ form.name.errors }}
+                        </div>
+                    </li>
+                    <li class="non-existing-patient">
+                        <label class="form-label">
+                           Gender
+                           <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input">
+                            {{ form.gender }}
+                            {{ form.gender.errors }}
+                        </div>
+                    <li>
+                    <li class="non-existing-patient">
+                        <label class="form-label">
+                           Year of Birth
+                           <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input">
+                            {{ form.birth_year }}
+                            {{ form.birth_year.errors }}
+                        </div>
+                    </li>
+                    <li class="non-existing-patient">
+                        <label class="form-label">
+                           Mobile Number
+                           <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input">
+                            {{ form.contact|attr:'placeholder:Mobile Number' }}
+                            {{ form.contact.errors }}
+                        </div>
+                    </li>
+                    <li class="non-existing-patient">
+                        <label class="form-label">
+                           E-Mail Address
+                           <!--<span class="form-required"> * </span>-->
+                        </label>
+                        <div class="form-input">
+                            {{ form.email|attr:'placeholder:myname@example.com' }}
+                            {{ form.email.errors }}
+                        </div>
+                    </li>
+                    <li>
+                        <label class="form-label">
+                           Visiting on
+                           <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input">
+                            <div id="DateTimePicker">
+                                <div class="col-sm-6" style="padding:0">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker11'>
+                                            {{ form.visiting_on|add_class:'form-control'|attr:'placeholder:MM/DD/YYYY hh:mm' }}
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar">
                                                 </span>
-                                            </div>
+                                            </span>
                                         </div>
                                     </div>
-                                    <script type="text/javascript">
-                                        $(function () {
-                                            $('#datetimepicker11').datetimepicker({
-                                                daysOfWeekDisabled: [0],
-                                                format: 'MM/DD/Y HH:mm',
-                                            });
-                                        });
-                                    </script>
                                 </div>
-                                {{ form.visitin_on.errors }}
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $('#datetimepicker11').datetimepicker({
+                                            daysOfWeekDisabled: [0],
+                                            format: 'MM/DD/Y HH:mm',
+                                        });
+                                    });
+                                </script>
                             </div>
-						</li>
-                        <li>
-							<label class="form-label">
-								Appointment type
-								<span class="form-required"> * </span>
-							</label>
-							<div class="form-input">
-								{{ form.purpose }}
-                                {{ form.purpose.errors }}
-							</div>
-						</li>
-						<li>
-							<label class="form-label1">
-								Mention any comments here. (optional)
-							</label>
-							<div class="form-input2">
-								{{ form.comment|attr:'rows:3'|attr:'placeholder:For ex: Mention any prolonged illness patient might be suffering from.' }}
-                                {{ form.comment.errors }}
-							</div>
-						</li>
-					</ul>
-
-					<input type="submit" value="Book Appointment">
-			</div>
-            </form>
-		</div>
+                            {{ form.visitin_on.errors }}
+                        </div>
+                    </li>
+                    <li>
+                        <label class="form-label">
+                            Appointment type
+                            <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input">
+                            {{ form.purpose }}
+                            {{ form.purpose.errors }}
+                        </div>
+                    </li>
+                    <li>
+                        <label class="form-label1">
+                            Mention any comments here. (optional)
+                        </label>
+                        <div class="form-input2">
+                            {{ form.comment|attr:'rows:3'|attr:'placeholder:For ex: Mention any prolonged illness patient might be suffering from.' }}
+                            {{ form.comment.errors }}
+                        </div>
+                    </li>
+                </ul>
+                <input type="submit" value="Book Appointment">
+            </div>
+        </form>
+    </div>
 </div>
 	<!-- bootstrap-modal-pop-up -->
 	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
