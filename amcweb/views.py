@@ -11,22 +11,24 @@ class About(TemplateView):
     template_name = 'amcweb/about.html'
 
 
+class Index(TemplateView):
+    template_name = 'amcweb/index.html'
+
+
 class MakeAppointment(FormView):
     template_name = 'amcweb/appointment.html'
     form_class = AppointmentForm
-    success_url = '/appointment'
+    # success_url = '/appointment'
 
     def form_valid(self, form):
         print(form.cleaned_data)
         form.send_email()
-        return super().form_valid(form)
+        return render(self.request, 'amcweb/appointment.html', {'hell': 'yeah'})
+
+        # return super().form_valid(form)
 
     def form_invalid(self, form):
-        print('caught the invalid form bro')
+        print('Form invalid')
         print(form.errors)
-
         return super().form_invalid(form)
 
-
-class Index(TemplateView):
-    template_name = 'amcweb/index.html'
