@@ -175,6 +175,26 @@ input[type="submit"]:hover {
     background-color: #ff9900;
     color: white;
 }
+.submit-button {
+    display: block;
+    margin: 25px auto;
+    padding: 10px 25px;
+    background-color: #146eb4;
+    color: white;
+	border:none;
+	outline:none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: 0;
+    cursor: pointer;
+}
+.submit-button:hover {
+    background-color: #ff9900;
+    color: white;
+}
+#ModalContent {
+    text-align: center;
+}
 input.year {
 	width: 31% !important;
 	    padding: 6px;

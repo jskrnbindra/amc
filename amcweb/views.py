@@ -28,4 +28,3 @@ class MakeAppointment(FormView):
         print('Form invalid')
         print(form.errors)
         return super().form_invalid(form)
-

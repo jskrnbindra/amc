@@ -9,11 +9,36 @@
 {% block main_content %}
 <script type="text/javascript" src="{% static 'amcweb/js/moment.js' %}"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-
 <div class="banner_inner_content_agile_amcl">
 
 </div>
 	<!--//banner -->
+<script>
+    function readFormFields() {
+        fields = $('#appointment-form .form-ele')
+        modalData = {};
+        fields.map(field => modalData[fields[field].id.substr(3)] = fields[field].value)
+        return modalData;
+    }
+
+    function formatDate(dateStr) {
+        let appointmentDate = new Date(dateStr);
+        return  appointmentDate.toDateString() + ' at ' + appointmentDate.toLocaleTimeString().substr(0, 5);
+    }
+
+    function populateModal() {
+        formData = readFormFields();
+        let modalPlaceholders = $('#ModalContent .field_value');
+        modalPlaceholders.map(placeholder =>
+                $('#' + modalPlaceholders[placeholder].id).text(
+                    modalPlaceholders[placeholder].id.substr(4) === 'visiting_on'
+                    ? formatDate(formData[modalPlaceholders[placeholder].id.substr(4)])
+                    : formData[modalPlaceholders[placeholder].id.substr(4)]
+                )
+        )
+    }
+    // TODO validate form
+</script>
 <div class="amcls-banner">
 	<div class="heading">
 		<h1>Appoint My Doctor</h1>
@@ -32,7 +57,7 @@
                             Already have your patient number?
                         </label>
                         <div class="form-input">
-                            {{ form.patient_id|attr:'placeholder:Enter patient number' }}
+                            {{ form.patient_id|attr:'placeholder:Enter patient number'|add_class:'form-ele' }}
                             {{ form.patient_id.errors }}
                         </div>
                     </li>
@@ -42,7 +67,7 @@
                             <span class="form-required"> * </span>
                         </label>
                         <div class="form-input">
-                            {{ form.name|attr:'placeholder:Enter Patients Name' }}
+                            {{ form.name|attr:'placeholder:Enter Patients Name'|add_class:'form-ele' }}
                             {{ form.name.errors }}
                         </div>
                     </li>
@@ -52,7 +77,7 @@
                            <span class="form-required"> * </span>
                         </label>
                         <div class="form-input">
-                            {{ form.gender }}
+                            {{ form.gender|add_class:'form-ele' }}
                             {{ form.gender.errors }}
                         </div>
                     <li>
@@ -62,7 +87,7 @@
                            <span class="form-required"> * </span>
                         </label>
                         <div class="form-input">
-                            {{ form.birth_year }}
+                            {{ form.birth_year|add_class:'form-ele' }}
                             {{ form.birth_year.errors }}
                         </div>
                     </li>
@@ -72,7 +97,7 @@
                            <span class="form-required"> * </span>
                         </label>
                         <div class="form-input">
-                            {{ form.contact|attr:'placeholder:Mobile Number' }}
+                            {{ form.contact|attr:'placeholder:Mobile Number'|add_class:'form-ele' }}
                             {{ form.contact.errors }}
                         </div>
                     </li>
@@ -82,7 +107,7 @@
                            <!--<span class="form-required"> * </span>-->
                         </label>
                         <div class="form-input">
-                            {{ form.email|attr:'placeholder:myname@example.com' }}
+                            {{ form.email|attr:'placeholder:myname@example.com'|add_class:'form-ele' }}
                             {{ form.email.errors }}
                         </div>
                     </li>
@@ -96,7 +121,7 @@
                                 <div class="col-sm-6" style="padding:0">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker11'>
-                                            {{ form.visiting_on|add_class:'form-control'|attr:'placeholder:MM/DD/YYYY hh:mm' }}
+                                            {{ form.visiting_on|add_class:'form-control'|attr:'placeholder:MM/DD/YYYY hh:mm'|add_class:'form-ele' }}
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar">
                                                 </span>
@@ -122,7 +147,7 @@
                             <span class="form-required"> * </span>
                         </label>
                         <div class="form-input">
-                            {{ form.purpose }}
+                            {{ form.purpose|add_class:'form-ele' }}
                             {{ form.purpose.errors }}
                         </div>
                     </li>
@@ -131,37 +156,56 @@
                             Mention any comments here. (optional)
                         </label>
                         <div class="form-input2">
-                            {{ form.comment|attr:'rows:3'|attr:'placeholder:For ex: Mention any prolonged illness patient might be suffering from.' }}
+                            {{ form.comment|attr:'rows:3'|attr:'placeholder:For ex: Mention any prolonged illness patient might be suffering from.'|add_class:'form-ele' }}
                             {{ form.comment.errors }}
                         </div>
                     </li>
                 </ul>
-                <input type="submit" value="Book Appointment">
+                <a href="#" data-toggle="modal" class="submit-button" data-target="#myModal" onclick="populateModal()">Book appointment</a>
             </div>
-        </form>
-    </div>
-</div>
-	<!-- bootstrap-modal-pop-up -->
-	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+            <!-- bootstrap-modal-pop-up -->
+            <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					New Clinic
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					Confirm appointment details
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				</div>
 					<div class="modal-body">
-						<img src="{% static 'amcweb/images/g7.jpg' %}" alt=" " class="img-responsive" />
-						<p>Ut enim ad minima veniam, quis nostrum 
-							exercitationem ullam corporis suscipit laboriosam, 
-							nisi ut aliquid ex ea commodi consequatur? Quis autem 
-							vel eum iure reprehenderit qui in ea voluptate velit 
-							esse quam nihil molestiae consequatur, vel illum qui 
-							dolorem eum fugiat quo voluptas nulla pariatur.
-							<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
-								esse quam nihil molestiae consequatur.</i></p>
+						<img src="{% static 'amcweb/images/gs7.jpg' %}" alt="Appointment confirmation image" class="img-responsive" />
+						<p id="ModalContent">
+                            <!-- Do not change the IDs of the following spans. Used to populate data. -->
+                            <span class="field_value" id="mdl_name">No data</span> &nbsp;
+                            (#<span class="field_value" id="mdl_patient_id">No data</span>)
+                            <br>
+                            booking an appointment on
+                            <br>
+                            <strong>
+                                <span class="field_value" id="mdl_visiting_on" style="font-size: 2em;">No data</span>
+                            </strong>
+                            <br>
+                            for
+                            <strong>
+                                <span class="field_value" id="mdl_purpose" style="font-size: 1.2em;">No data</span>
+                            </strong>
+                            <br>
+                            Your details are as follows:
+                            <br>
+                            <span class="field_value" id="mdl_gender">No data</span>
+                            <span class="field_value" id="mdl_birth_year">No data</span>
+                            <span class="field_value" id="mdl_contact">No data</span>
+                            <span class="field_value" id="mdl_email">No data</span>
+                            <br>
+                            <span class="field_value" id="mdl_comment">No data</span>
+                        </p>
+                        <input id="appointment_submit" visibile="false" type="submit" value="Confirm Appointment">
 					</div>
 			</div>
 		</div>
 	</div>
-<!-- //bootstrap-modal-pop-up --> 
+            <!-- //bootstrap-modal-pop-up -->
+        </form>
+    </div>
+</div>
 {% endblock %}
+<!-- TODO: do not allow past dates -->
