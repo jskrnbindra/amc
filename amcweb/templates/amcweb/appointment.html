@@ -165,44 +165,44 @@
             </div>
             <!-- bootstrap-modal-pop-up -->
             <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					Confirm appointment details
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				</div>
-					<div class="modal-body">
-						<img src="{% static 'amcweb/images/gs7.jpg' %}" alt="Appointment confirmation image" class="img-responsive" />
-						<p id="ModalContent">
-                            <!-- Do not change the IDs of the following spans. Used to populate data. -->
-                            <span class="field_value" id="mdl_name">No data</span> &nbsp;
-                            (#<span class="field_value" id="mdl_patient_id">No data</span>)
-                            <br>
-                            booking an appointment on
-                            <br>
-                            <strong>
-                                <span class="field_value" id="mdl_visiting_on" style="font-size: 2em;">No data</span>
-                            </strong>
-                            <br>
-                            for
-                            <strong>
-                                <span class="field_value" id="mdl_purpose" style="font-size: 1.2em;">No data</span>
-                            </strong>
-                            <br>
-                            Your details are as follows:
-                            <br>
-                            <span class="field_value" id="mdl_gender">No data</span>
-                            <span class="field_value" id="mdl_birth_year">No data</span>
-                            <span class="field_value" id="mdl_contact">No data</span>
-                            <span class="field_value" id="mdl_email">No data</span>
-                            <br>
-                            <span class="field_value" id="mdl_comment">No data</span>
-                        </p>
-                        <input id="appointment_submit" visibile="false" type="submit" value="Confirm Appointment">
-					</div>
-			</div>
-		</div>
-	</div>
+		        <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            Confirm appointment details
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                            <div class="modal-body">
+                                <img src="{% static 'amcweb/images/gs7.jpg' %}" alt="Appointment confirmation image" class="img-responsive" />
+                                <p id="ModalContent">
+                                    <!-- Do not change the IDs of the following spans. Used to populate data. -->
+                                    <span class="field_value" id="mdl_name">No data</span> &nbsp;
+                                    (#<span class="field_value" id="mdl_patient_id">No data</span>)
+                                    <br>
+                                    booking an appointment on
+                                    <br>
+                                    <strong>
+                                        <span class="field_value" id="mdl_visiting_on" style="font-size: 2em;">No data</span>
+                                    </strong>
+                                    <br>
+                                    for
+                                    <strong>
+                                        <span class="field_value" id="mdl_purpose" style="font-size: 1.2em;">No data</span>
+                                    </strong>
+                                    <br>
+                                    Your details are as follows:
+                                    <br>
+                                    <span class="field_value" id="mdl_gender">No data</span>
+                                    <span class="field_value" id="mdl_birth_year">No data</span>
+                                    <span class="field_value" id="mdl_contact">No data</span>
+                                    <span class="field_value" id="mdl_email">No data</span>
+                                    <br>
+                                    <span class="field_value" id="mdl_comment">No data</span>
+                                </p>
+                                <input id="appointment_submit" visibile="false" type="submit" value="Confirm Appointment">
+                            </div>
+                    </div>
+		        </div>
+	        </div>
             <!-- //bootstrap-modal-pop-up -->
         </form>
     </div>
