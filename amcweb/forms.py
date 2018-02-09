@@ -1,9 +1,10 @@
-from datetime import date
+from datetime import datetime, date
 
 from django import forms
 
+from  amcweb.utils.mongo_utils import next_count
 from .config import APPOINTMENT_TYPES
-from .models import Patient
+from .models import Patient, Appointment
 
 
 def required_msg(required_suffix):
@@ -54,8 +55,44 @@ class AppointmentForm(forms.Form):
             existing = Patient.objects(uid=patient_id)
             self.cleaned_data['patient'] = None if not existing else existing[0]
 
+        self.cleaned_data['patient'] = self.new_patient(self.cleaned_data)
         return self.cleaned_data['patient_id']
 
     def send_email(self):
         print('send email')
         pass
+
+    def new_patient(self, appointment):
+        appointment['name'] += ' '
+        return Patient(
+            uid=next_count('Patient'),
+            first_name=appointment['name'][:appointment['name'].index(' ')],
+            last_name=appointment['name'][appointment['name'].rindex(' ') + 1:],
+            gender=appointment['gender'].lower(),
+            contact=[appointment['contact'] if 'contact' in appointment else []],
+            email=[appointment['email']] if appointment['email'] != '' else [],
+            problem=appointment['purpose'],
+            comments=appointment['comment'],
+            prescriptions=[],
+            appointments=[]
+        )
+
+    def create_appointment(self, appointment):
+        print(appointment)
+        if not appointment['patient_id']:
+            patient = self.new_patient(appointment)
+        else:
+            patient = self.cleaned_data['patient']
+
+        new_appointment = Appointment(
+            uid=next_count('Appointment'),
+            datetime=appointment['visiting_on'],
+            new_patient=False if 'patient' in appointment else True,
+            applied_on=datetime.now(),
+            purpose=appointment['purpose'],
+            requested_through='website',
+            patient_id=patient['uid'],
+        )
+
+        patient['appointments'].append(new_appointment)
+        patient.save()

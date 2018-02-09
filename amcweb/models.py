@@ -9,9 +9,9 @@ class Appointment(EmbeddedDocument):
 
     uid = IntField(min_value=1, unique=True, requied=True)
     datetime = DateTimeField(required=True)
-    # patientID = IntField(min_value=1)
+    patient_id = IntField(min_value=1)
     new_patient = BooleanField(required=True)
-    requested_on = DateTimeField(requied=True)
+    applied_on = DateTimeField(requied=True)
     purpose = StringField(max_length=500)
     requested_through = StringField(choices=['website', 'phone', 'email'])
     patient_turned_up = BooleanField()
