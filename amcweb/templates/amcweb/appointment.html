@@ -39,6 +39,17 @@
     }
     // TODO validate form
 </script>
+{% if msg %}
+<br>
+<br>
+<div class="container_1">
+    Appointment booked successfully.
+    <a href="appointment" class="submit-button">Book another</a>
+</div>
+<br>
+<br>
+{% endif %}
+{% if not msg.only %}
 <div class="amcls-banner">
 	<div class="heading">
 		<h1>Appoint My Doctor</h1>
@@ -207,5 +218,7 @@
         </form>
     </div>
 </div>
+{% endif %}
+
 {% endblock %}
 <!-- TODO: do not allow past dates -->
