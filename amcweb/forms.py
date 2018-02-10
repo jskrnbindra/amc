@@ -57,7 +57,6 @@ class AppointmentForm(forms.Form):
         else:
             self.cleaned_data['patient'] = None
 
-        # wrong patient id entered case
         return self.cleaned_data['patient_id']
 
     def send_email(self):
@@ -71,9 +70,30 @@ class AppointmentForm(forms.Form):
 
         return patient
 
+    def has_duplicate(self, patient):
+        possible_duplicates = Patient.objects(contact=patient.contact[0])
+        duplicates = []
+
+        for possible_duplicate in possible_duplicates:
+            names_match = possible_duplicate['first_name'].lower().strip() == patient['first_name'].lower().strip()
+            genders_match = possible_duplicate['gender'].lower() == patient['gender'].lower()
+            birth_years_match = True if possible_duplicate['dob'] is None else possible_duplicate['dob'].year() == int(patient['birth_year'])
+
+            if names_match and genders_match and birth_years_match:
+                duplicates.append(possible_duplicate)
+
+        if len(duplicates) > 1:
+            print('Multiple duplicates found for a record. Looks like an error. This is an error.')
+        elif len(duplicates) == 0:
+            return None
+        elif len(duplicates) == 1:
+            return duplicates[0]
+        else:
+            print('Unexpected code path followed. This is an error.')
+
     def new_patient(self, appointment_form):
         appointment_form['name'] += ' ' if ' ' not in appointment_form['name'] else ''
-        return Patient(
+        new_pat = Patient(
             uid=next_count('Patient'),
             first_name=appointment_form['name'][:appointment_form['name'].index(' ')],
             last_name=appointment_form['name'][appointment_form['name'].rindex(' ') + 1:],
@@ -85,6 +105,10 @@ class AppointmentForm(forms.Form):
             prescriptions=[],
             appointments=[]
         )
+
+        any_duplicate = self.has_duplicate(new_pat)
+
+        return any_duplicate if any_duplicate else new_pat
 
     def create_appointment(self, appointment_form):
         print(appointment_form)
@@ -105,3 +129,8 @@ class AppointmentForm(forms.Form):
 
         patient['appointments'].append(new_appointment)
         patient.save()
+
+
+# wrong patient id entered case......kinda handeled with name lookup
+# duplicate patient created on new_patient
+# dad bookin an appointment by filling his details but appointment is for kid
