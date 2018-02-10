@@ -238,7 +238,10 @@
                         $('#pat_name_inst').show();
                         }, 'json')
                     .done(() => {})
-                    .fail(() => $('#pat_name').text('Wrong patient number'))
+                    .fail(() => {
+                        $('#pat_name').text(`Wrong patient number ${pat_id}`);
+                        $('#id_patient_id').val('');
+                        })
                     .always(() => $('#pat_id_spinner').hide());
                 }
             });
