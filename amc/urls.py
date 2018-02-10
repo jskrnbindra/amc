@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('amcweb.urls')),
+    path('api/', include('amcapi.urls')),
     path('admin/', admin.site.urls),
 ]
