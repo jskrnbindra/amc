@@ -65,16 +65,18 @@
             {% csrf_token %}
             <div class="agile-form">
                 <ul class="field-list">
-                    <li class="existing-patient">
+                    <li>
                         <label class="form-label">
                             Already have your patient number?
                         </label>
                         <div class="form-input">
                             {{ form.patient_id|attr:'placeholder:Enter patient number'|add_class:'form-ele' }}
+                            <img src="{% static 'amcweb/gifs/amc-loader.gif' %}" id="pat_id_spinner" alt="loading..." height="40px" style="display:none" />
+                            <span id="pat_name"></span>
                             {{ form.patient_id.errors }}
                         </div>
                     </li>
-                    <li class="non-existing-patient">
+                    <li>
                         <label class="form-label">
                             Full Name
                             <span class="form-required"> * </span>
@@ -84,7 +86,7 @@
                             {{ form.name.errors }}
                         </div>
                     </li>
-                    <li class="non-existing-patient">
+                    <li>
                         <label class="form-label">
                            Gender
                            <span class="form-required"> * </span>
@@ -94,7 +96,7 @@
                             {{ form.gender.errors }}
                         </div>
                     <li>
-                    <li class="non-existing-patient">
+                    <li>
                         <label class="form-label">
                            Year of Birth
                            <span class="form-required"> * </span>
@@ -104,7 +106,7 @@
                             {{ form.birth_year.errors }}
                         </div>
                     </li>
-                    <li class="non-existing-patient">
+                    <li>
                         <label class="form-label">
                            Mobile Number
                            <span class="form-required"> * </span>
@@ -114,7 +116,7 @@
                             {{ form.contact.errors }}
                         </div>
                     </li>
-                    <li class="non-existing-patient">
+                    <li>
                         <label class="form-label">
                            E-Mail Address
                            <!--<span class="form-required"> * </span>-->
@@ -218,6 +220,20 @@
 	        </div>
             <!-- //bootstrap-modal-pop-up -->
         </form>
+        <script>
+            $('#pat_id_spinner').hide();
+            $('#id_patient_id').on('blur', () => {
+                $('#pat_name').text('');
+                const pat_id = $('#id_patient_id').val();
+                if(pat_id != '') {
+                    $('#pat_id_spinner').show();
+                    $.get('/api/patient/' + pat_id, resp => $('#pat_name').text(resp['name']), 'json')
+                    .done(() => {})
+                    .fail(() => $('#pat_name').text('Wrong patient number'))
+                    .always(() => $('#pat_id_spinner').hide());
+                }
+            });
+        </script>
     </div>
 </div>
 {% endif %}
