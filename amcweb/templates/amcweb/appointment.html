@@ -73,6 +73,8 @@
                             {{ form.patient_id|attr:'placeholder:Enter patient number'|add_class:'form-ele' }}
                             <img src="{% static 'amcweb/gifs/amc-loader.gif' %}" id="pat_id_spinner" alt="loading..." height="40px" style="display:none" />
                             <span id="pat_name"></span>
+                            <span href="#" id="pat_name_inst" style="display:none">Not you?</span>
+                            <span href="#" id="pat_name_inst2" style="display:none">Re-enter correct patient number</span>
                             {{ form.patient_id.errors }}
                         </div>
                     </li>
@@ -224,14 +226,29 @@
             $('#pat_id_spinner').hide();
             $('#id_patient_id').on('blur', () => {
                 $('#pat_name').text('');
+                $('#pat_name_inst').hide();
+                $('#pat_name_inst2').hide();
+
                 const pat_id = $('#id_patient_id').val();
                 if(pat_id != '') {
                     $('#pat_id_spinner').show();
-                    $.get('/api/patient/' + pat_id, resp => $('#pat_name').text(resp['name']), 'json')
+                    $.get('/api/patient/' + pat_id,
+                    resp => {
+                        $('#pat_name').text(resp['name']);
+                        $('#pat_name_inst').show();
+                        }, 'json')
                     .done(() => {})
                     .fail(() => $('#pat_name').text('Wrong patient number'))
                     .always(() => $('#pat_id_spinner').hide());
                 }
+            });
+
+            $('#pat_name_inst').on('click', () => {
+                $('#id_patient_id').val('');
+                $('#pat_name_inst').hide()
+                $('#pat_name_inst2').show()
+                $('#pat_name').text('');
+
             });
         </script>
     </div>

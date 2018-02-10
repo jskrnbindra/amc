@@ -192,6 +192,17 @@ input[type="submit"]:hover {
     background-color: #ff9900;
     color: white;
 }
+#pat_name_inst2 {
+    font-size: .8em;
+}
+#pat_name_inst {
+    font-size: .8em;
+    color: blue;
+}
+#pat_name_inst:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 #ModalContent {
     text-align: center;
 }
