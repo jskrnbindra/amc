@@ -54,42 +54,51 @@ class AppointmentForm(forms.Form):
             patient_id = int(self.cleaned_data['patient_id'])
             existing = Patient.objects(uid=patient_id)
             self.cleaned_data['patient'] = None if not existing else existing[0]
+        else:
+            self.cleaned_data['patient'] = None
 
-        self.cleaned_data['patient'] = self.new_patient(self.cleaned_data)
+        # wrong patient id entered case
         return self.cleaned_data['patient_id']
 
     def send_email(self):
         print('send email')
         pass
 
-    def new_patient(self, appointment):
-        appointment['name'] += ' '
+    def update_patient(self, appointment_form):
+        patient = self.cleaned_data['patient']
+        patient.contact += [appointment_form['contact']] if not appointment_form['contact'] in patient.contact else []
+        patient.email += [appointment_form['email']] if not appointment_form['email'] in patient.email else []
+
+        return patient
+
+    def new_patient(self, appointment_form):
+        appointment_form['name'] += ' ' if ' ' not in appointment_form['name'] else ''
         return Patient(
             uid=next_count('Patient'),
-            first_name=appointment['name'][:appointment['name'].index(' ')],
-            last_name=appointment['name'][appointment['name'].rindex(' ') + 1:],
-            gender=appointment['gender'].lower(),
-            contact=[appointment['contact'] if 'contact' in appointment else []],
-            email=[appointment['email']] if appointment['email'] != '' else [],
-            problem=appointment['purpose'],
-            comments=appointment['comment'],
+            first_name=appointment_form['name'][:appointment_form['name'].index(' ')],
+            last_name=appointment_form['name'][appointment_form['name'].rindex(' ') + 1:],
+            gender=appointment_form['gender'].lower(),
+            contact=[appointment_form['contact']] if 'contact' in appointment_form else [],
+            email=[appointment_form['email']] if appointment_form['email'] != '' else [],
+            problem=appointment_form['purpose'],
+            comments=appointment_form['comment'],
             prescriptions=[],
             appointments=[]
         )
 
-    def create_appointment(self, appointment):
-        print(appointment)
-        if not appointment['patient_id']:
-            patient = self.new_patient(appointment)
-        else:
-            patient = self.cleaned_data['patient']
+    def create_appointment(self, appointment_form):
+        print(appointment_form)
+        if not appointment_form['patient']:  # new patient
+            patient = self.new_patient(appointment_form)
+        else:  # existing patient
+            patient = self.update_patient(appointment_form)
 
         new_appointment = Appointment(
             uid=next_count('Appointment'),
-            datetime=appointment['visiting_on'],
-            new_patient=False if 'patient' in appointment else True,
+            datetime=appointment_form['visiting_on'],
+            new_patient=False if appointment_form['patient'] else True,
             applied_on=datetime.now(),
-            purpose=appointment['purpose'],
+            purpose=appointment_form['purpose'],
             requested_through='website',
             patient_id=patient['uid'],
         )
