@@ -2,8 +2,7 @@
 
 Website for Ayurveda Multispeciality Centre, Ludhiana.
 
-#### Tech stack
+#### Stack
 1. Django
 2. MongoDB
 3. Bootstrap
-
