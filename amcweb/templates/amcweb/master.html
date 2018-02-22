@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +11,7 @@
 	<meta name="keywords" content="New Clinic Responsive web template, Bootstrap Web Templates, Flat Web Templates,
 	    Android Compatible web template,Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
 	    SonyEricsson, Motorola web design" />
-	<script type="application/x-javascript">
+	<!-- <script type="application/x-javascript">
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
 		}, false);
@@ -19,9 +19,10 @@
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
-	</script>
+	</script> -->
     <link href="{% static 'amcweb/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{% static 'amcweb/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static 'amcweb/css/styler.css' %}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{% static 'amcweb/css/font-awesome.css' %}" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
@@ -68,7 +69,7 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li><a href="index" class="active">Home</a></li>
+								<li><a href="index">Home</a></li>
 								<li><a href="about">About</a></li>
 
 								<li><a href="departments">Departments</a></li>
@@ -105,9 +106,7 @@
 			<div class="col-md-3 footer_grid">
 				<h3>About Us</h3>
 				<p>Nam libero tempore cum vulputate id est id, pretium semper enim. Morbi viverra congue eros.
-
 				</p>
-
 			</div>
 			<div class="col-md-3 footer_grid">
 				<h3>Latest News</h3>
@@ -137,22 +136,12 @@
 					<li><i class="fa fa-phone" aria-hidden="true"></i>+09187 8088 9436</li>
 				</ul>
 			</div>
-			<div class="col-md-3 footer_grid ">
-				<h3>Sign up for our Newsletter</h3>
-				<p>Get Started For Free</p>
-				<div class="footer_grid_right">
 
-					<form action="#" method="post">
-						<input type="email" name="Email" placeholder="Email Address..." required="">
-						<input type="submit" value="Submit">
-					</form>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
+			<div class="clearfix"></div>
 
 		</div>
 	</div>
-	<div class="footer_wthree_agile">
+	<div class="footer_amc_agile">
 		<p>© 2018 New Clinic. All rights reserved | Website by <a href="http://www.facebook.com/jskrnbindra">JskrnBindra</a></p>
 	</div>
 	<!-- //footer -->

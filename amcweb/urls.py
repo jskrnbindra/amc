@@ -9,4 +9,5 @@ urlpatterns = [
     path('index', views.Index.as_view(), name='index'),
     path('appointment', views.MakeAppointment.as_view(), name='appointment'),
     path('about', views.About.as_view(), name='about'),
+    path('subscribe/email', views.SubEmail.as_view(), name='subscribe-email')
 ]

@@ -2037,7 +2037,7 @@ figure.effect-apollo:hover p {
 	display: inline-block;
 }
 
-.footer_wthree_agile{
+.footer_amc_agile{
 	background: #0f0f10;
 	padding: 1em 0;
 }
@@ -2302,7 +2302,7 @@ ul.social-icons3.two li a {
 	text-align: center;
 }
 
-.footer_wthree_agile p {
+.footer_amc_agile p {
 	color: #fff;
 	font-size: 16px;
 	letter-spacing: 2px;
@@ -2310,7 +2310,7 @@ ul.social-icons3.two li a {
 	    padding-top: 16px;
 }
 
-.footer_wthree_agile p a {
+.footer_amc_agile p a {
 	color: #ff9900;
 	transition: .5s ease-in;
 	-webkit-transition: .5s ease-in;
@@ -2319,7 +2319,7 @@ ul.social-icons3.two li a {
 	-ms-transition: .5s ease-in;
 }
 
-.footer_wthree_agile p a:hover {
+.footer_amc_agile p a:hover {
 	color: #fff;
 }
 

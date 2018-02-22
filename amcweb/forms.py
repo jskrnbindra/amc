@@ -60,8 +60,7 @@ class AppointmentForm(forms.Form):
         return self.cleaned_data['patient_id']
 
     def send_email(self):
-        print('send email')
-        pass
+        print('mail sent')
 
     def update_patient(self, appointment_form):
         patient = self.cleaned_data['patient']
@@ -134,3 +133,10 @@ class AppointmentForm(forms.Form):
 # wrong patient id entered case......kinda handeled with name lookup
 # duplicate patient created on new_patient
 # dad bookin an appointment by filling his details but appointment is for kid
+
+
+class SubscribeEmail(forms.Form):
+    email = forms.EmailField(required=False, error_messages=get_errors('email', 'your email'))
+
+    def done_here(self):
+        print('done ho gya')
