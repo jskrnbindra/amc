@@ -136,7 +136,7 @@ class AppointmentForm(forms.Form):
 
 
 class SubscribeEmail(forms.Form):
-    email = forms.EmailField(required=False, error_messages=get_errors('email', 'your email'))
+    email = forms.EmailField(error_messages=get_errors('email', 'your email'))
 
     def done_here(self):
         print('done ho gya')

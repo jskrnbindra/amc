@@ -69,3 +69,7 @@ class Counter(Document):
 
     name = StringField(max_length=10)
     count = IntField(min_value=1)
+
+
+class Subscriber(Document):
+    email = EmailField()

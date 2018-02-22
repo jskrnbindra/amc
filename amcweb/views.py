@@ -5,12 +5,20 @@ from django.views.generic.edit import FormView
 from django.urls import reverse
 
 from .forms import AppointmentForm, SubscribeEmail
-from .models import Appointment, Patient, Prescription
+from .models import Appointment, Patient, Prescription, Subscriber
 
 
 def index(request):
-    print(request.method)
-    print(request.body)
+    if request.method == 'POST':
+        body = request.body
+        data = body.split('&').encode()
+        map(lambda x: x.split('='), data)
+        map(lambda x: x[1], data)
+
+        print(data)
+
+
+
     return render(request, 'amcweb/index.html', {})
 
 
