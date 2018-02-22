@@ -105,4 +105,4 @@ sendgrid.env
 .idea
 
 # virtual env
-amcenv
+amcvenv
