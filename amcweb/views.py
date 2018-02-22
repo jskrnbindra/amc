@@ -1,11 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse
 
 from .forms import AppointmentForm, SubscribeEmail
 from .models import Appointment, Patient, Prescription
+
+
+def index(request):
+    print(request.method)
+    print(request.body)
+    return render(request, 'amcweb/index.html', {})
 
 
 class About(TemplateView):
