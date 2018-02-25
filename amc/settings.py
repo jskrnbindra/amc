@@ -54,6 +54,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+
 ROOT_URLCONF = 'amc.urls'
 
 TEMPLATES = [

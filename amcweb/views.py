@@ -1,21 +1,42 @@
+from django.core.mail import send_mail
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.urls import reverse
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
-from django.urls import reverse
 
 from mongoengine import errors as mngoengerrs
 from pymongo import errors
 
+from .config import EMAIL_TEMPLATES
 from .forms import AppointmentForm, SubscribeEmail
 from .models import Appointment, Patient, Prescription, Subscriber
+
+
+def mail(email_template, context):
+    template = EMAIL_TEMPLATES[email_template]
+    send_mail(
+        template['subject'],
+        template['body'] % context['name'],
+        template['from'],
+        [context['email']],
+        fail_silently=False
+        )
+
+    template = EMAIL_TEMPLATES[email_template + '_admin']
+    send_mail(
+        template['subject'] % context['name'],
+        template['body'] % context['name'],
+        template['from'],
+        template['to'],
+        fail_silently=False
+    )
 
 
 def index(request):
     if request.method == 'POST':
         subscriber = Subscriber(request.POST['email'], request.POST['name'])
         try:
-            subscriber.save()
+            new_sub = subscriber.save()
         except errors.AutoReconnect:
             context = {
                 'err': 'DB_CONN_ERR',
@@ -32,6 +53,7 @@ def index(request):
             return render(request, 'amcweb/index.html', context)
 
         context = {'msg': "You've been subscribed to the newsletter. 🙂"}
+        mail('new_subscriber', {'name': new_sub.name, 'email': new_sub.email})
         return render(request, 'amcweb/index.html', context)
 
     return render(request, 'amcweb/index.html', {})

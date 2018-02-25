@@ -60,6 +60,11 @@ class Patient(Document):
     # previous visits from appointment where turnedup = True
 
 
+class Subscriber(Document):
+    name = StringField(max_length=150, required=True)
+    email = EmailField(primary_key=True)
+
+
 class Counter(Document):
     """
     Maintains all the counters used in mongo.
@@ -69,8 +74,3 @@ class Counter(Document):
 
     name = StringField(max_length=10)
     count = IntField(min_value=1)
-
-
-class Subscriber(Document):
-    name = StringField(max_length=150, required=True)
-    email = EmailField(primary_key=True)

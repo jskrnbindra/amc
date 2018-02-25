@@ -2,7 +2,7 @@ from datetime import datetime, date
 
 from django import forms
 
-from  amcweb.utils.mongo_utils import next_count
+from amcweb.utils.mongo_utils import next_count
 from .config import APPOINTMENT_TYPES
 from .models import Patient, Appointment
 
