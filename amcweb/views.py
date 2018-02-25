@@ -73,6 +73,7 @@ class MakeAppointment(FormView):
 
     def form_valid(self, form):
         form.create_appointment(form.cleaned_data)
+        mail('new_appointment', { 'name': form.cleaned_data['name'], 'email': form.cleaned_data['email']})
         return render(self.request, 'amcweb/appointment.html', {'msg': {'msg': 'ye le', 'only': True, 'appointment': form.cleaned_data}})
 
     def form_invalid(self, form):
