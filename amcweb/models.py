@@ -72,4 +72,5 @@ class Counter(Document):
 
 
 class Subscriber(Document):
+    name = StringField(max_length=150, required=True)
     email = EmailField(primary_key=True)

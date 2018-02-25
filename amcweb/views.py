@@ -13,7 +13,7 @@ from .models import Appointment, Patient, Prescription, Subscriber
 
 def index(request):
     if request.method == 'POST':
-        subscriber = Subscriber(request.POST['email'])
+        subscriber = Subscriber(request.POST['email'], request.POST['name'])
         try:
             subscriber.save()
         except errors.AutoReconnect:
@@ -22,7 +22,8 @@ def index(request):
                 'msg': "Oops! There was an error. Please try after some time."
             }
             return render(request, 'amcweb/index.html', context)
-        except mngoengerrs.ValidationError:
+        except mngoengerrs.ValidationError as err:
+            print(err)
             context = {
                 'err': 'BAD_INPUT',
                 'msg': "There were errors in the info you entered. Enter valid info.",

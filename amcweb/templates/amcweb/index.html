@@ -14,6 +14,7 @@ This is a title test bro
                 <script>
                     function populateForm() {
                         $('#ff_email').val('{{ form.email }}');
+                        $('#ff_name').val('{{ form.name }}');
                     }
                     $(document).ready(() => {
                         populateForm();
@@ -328,9 +329,11 @@ This is a title test bro
 					</span>
 				</h3>
 			</div>
-            <form action="/index" method="post">
+            <form action="{% url 'amcweb:index' %}" method="post" id="frm_subscribe">
                 {% csrf_token %}
+                <input type="text" id="ff_name" class="sub-email" name="name" placeholder="Full Name" required/>
                 <input type="email" id="ff_email" class="sub-email" name="email" placeholder="Your email address" required/>
+                <br>
 				<input type="submit" value="Submit" />
             </form>
             <div class="clearfix"> </div>
