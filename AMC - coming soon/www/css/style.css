@@ -733,7 +733,10 @@ nav {
 @media(max-width:600px){
 	.amcl-banner-left,.banner-right {
 		padding: 5em 0;
-	}
+    }
+    .most-prominent-text h1 {
+        font-size: 3.5em;
+    }
 }
 @media(max-width:480px){
 	.amcl-banner-left h1 a {
