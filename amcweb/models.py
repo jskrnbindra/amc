@@ -72,4 +72,4 @@ class Counter(Document):
 
 
 class Subscriber(Document):
-    email = EmailField()
+    email = EmailField(primary_key=True)

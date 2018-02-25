@@ -6,3 +6,10 @@
     max-width: 400px;
     padding: 5px;
 }
+.top-message {
+    text-align: center;
+    background: orange;
+    line-height: 2em;
+    color: white;
+    font-size: 1.2em;
+}

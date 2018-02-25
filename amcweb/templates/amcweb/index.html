@@ -7,6 +7,22 @@ This is a title test bro
 
 {% block main_content %}
 	<!-- banner -->
+    <div class="top-message" style="background-color: {{ err|yesno:'red,forestgreen,orange' }};">
+        {{ msg }}
+        {% if err %}
+            {% if err and form %}
+                <script>
+                    function populateForm() {
+                        $('#ff_email').val('{{ form.email }}');
+                    }
+                    $(document).ready(() => {
+                        populateForm();
+                    })
+                </script>
+            {% endif %}
+        {% endif %}
+
+    </div>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
@@ -314,7 +330,7 @@ This is a title test bro
 			</div>
             <form action="/index" method="post">
                 {% csrf_token %}
-                <input type="email" class="sub-email" name="email" placeholder="Your email address" required/>
+                <input type="email" id="ff_email" class="sub-email" name="email" placeholder="Your email address" required/>
 				<input type="submit" value="Submit" />
             </form>
             <div class="clearfix"> </div>

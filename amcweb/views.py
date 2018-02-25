@@ -4,20 +4,34 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse
 
+from mongoengine import errors as mngoengerrs
+from pymongo import errors
+
 from .forms import AppointmentForm, SubscribeEmail
 from .models import Appointment, Patient, Prescription, Subscriber
 
 
 def index(request):
     if request.method == 'POST':
-        body = request.body
-        data = body.split('&').encode()
-        map(lambda x: x.split('='), data)
-        map(lambda x: x[1], data)
+        subscriber = Subscriber(request.POST['email'])
+        try:
+            subscriber.save()
+        except errors.AutoReconnect:
+            context = {
+                'err': 'DB_CONN_ERR',
+                'msg': "Oops! There was an error. Please try after some time."
+            }
+            return render(request, 'amcweb/index.html', context)
+        except mngoengerrs.ValidationError:
+            context = {
+                'err': 'BAD_INPUT',
+                'msg': "There were errors in the info you entered. Enter valid info.",
+                'form': request.POST
+            }
+            return render(request, 'amcweb/index.html', context)
 
-        print(data)
-
-
+        context = {'msg': "You've been subscribed to the newsletter. 🙂"}
+        return render(request, 'amcweb/index.html', context)
 
     return render(request, 'amcweb/index.html', {})
 
