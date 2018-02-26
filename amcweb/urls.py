@@ -9,5 +9,4 @@ urlpatterns = [
     path('index', views.index, name='index'),
     path('appointment', views.MakeAppointment.as_view(), name='appointment'),
     path('about', views.About.as_view(), name='about'),
-    path('subscribe/email', views.SubEmail.as_view(), name='subscribe-email')
 ]
