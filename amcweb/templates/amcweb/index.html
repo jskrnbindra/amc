@@ -281,8 +281,6 @@ This is a title test bro
             </div>
         </div>
     </div>
-    <!-- //Clients -->
-    <!--/icons-->
 	<div class="banner-bottom">
 		<div class="container">
 			<div class="tittle_head_Sodhis">
@@ -317,8 +315,6 @@ This is a title test bro
 			</div>
 		</div>
 	</div>
-	<!--//icons-->
-
 	<div class="banner-bottom">
 		<div class="container">
 			<div class="tittle_head_Sodhis">
@@ -334,14 +330,19 @@ This is a title test bro
                 <input type="text" id="ff_name" class="sub-email" name="name" placeholder="Full Name" required/>
                 <input type="email" id="ff_email" class="sub-email" name="email" placeholder="Your email address" required/>
                 <br>
-				<input type="submit" value="Submit" />
+				<input type="submit" value="Subscribe" id="btn_subscribe" />
+                <img src="{% static 'amcweb/gifs/amc-loader.gif' %}" id="subscribe_spinner" alt="loading..." height="40px" style="display:none" />
+
             </form>
             <div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>
+    <script>
+        $('#btn_subscribe').on('click', e => $('#subscribe_spinner').show());
+    </script>
 
-	<!-- bootstrap-modal-pop-up -->
+	<!-- modal -->
 	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -363,5 +364,5 @@ This is a title test bro
 			</div>
 		</div>
 	</div>
-<!-- //bootstrap-modal-pop-up -->
+<!-- //modal -->
 {% endblock %}
