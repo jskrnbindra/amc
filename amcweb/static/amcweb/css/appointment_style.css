@@ -208,7 +208,14 @@ input[type="submit"]:hover {
 .modal-body{
     padding: 30px;
 }
-#ModalContent {
+#ModalContent, #ModalContent small {
+    text-align: center;
+}
+.errorlist li {
+    background: #da3636;
+    padding: 3px;
+    color: white;
+    font-weight: 100;
     text-align: center;
 }
 .modal_tbl{
@@ -219,8 +226,19 @@ input[type="submit"]:hover {
 .modal_tbl td:nth-child(1) {
     font-weight: bold;
 }
+.modal_tbl td:nth-child(2) {
+    color: black;
+}
 .modal_tbl td {
     border: 1px solid;
+}
+.form-invalid-msg{
+    background: #da3636;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin: 5px;
+    display: none;
 }
 input.year {
 	width: 31% !important;

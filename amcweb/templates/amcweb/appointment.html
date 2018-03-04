@@ -49,9 +49,10 @@
                         : formData[modalPlaceholders[placeholder].id.substr(4)]
                     )
             )
+            $('#form_invalid_msg').hide();
             $('#myModal').modal('show');
         } else {
-            console.log('invalid form bro');
+            $('#form_invalid_msg').show();
         }
     }
 
@@ -175,6 +176,7 @@
                                 <script type="text/javascript">
                                     $(function () {
                                         $('#datetimepicker11').datetimepicker({
+                                            minDate: new Date(),
                                             daysOfWeekDisabled: [0],
                                             format: 'MM/DD/Y HH:mm',
                                         });
@@ -204,6 +206,7 @@
                         </div>
                     </li>
                 </ul>
+                <div id="form_invalid_msg" class="form-invalid-msg">Fill in all the details above, before booking.</div>
                 <span class="submit-button" data-target="#myModal" onclick="populateModal()">Book appointment</span>
             </div>
             <!-- modal -->
@@ -218,7 +221,7 @@
                                 <img src="{% static 'amcweb/images/gs7.jpg' %}" alt="Appointment confirmation image" class="img-responsive" />
                                 <p id="ModalContent">
                                     <!-- Do not change the IDs of the following spans. Used to populate data. -->
-                                    <span class="field_value" id="mdl_name"></span> &nbsp;
+                                    <strong><span class="field_value" id="mdl_name"></span></strong> &nbsp;
                                     <span class="field_value" id="mdl_patient_id"></span>
                                     <br>
                                     booking an appointment on
@@ -262,6 +265,7 @@
                                     </table>
                                     <br>
                                 </p>
+                                You will receive an email confirmation once you confirm this appointment.
                                 <input id="appointment_submit" visibile="false" type="submit" value="Confirm Appointment">
                             </div>
                     </div>
