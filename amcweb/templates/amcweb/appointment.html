@@ -14,10 +14,14 @@
 </div>
 	<!--//banner -->
 <script>
+    /**
+    * Reads all the form fields and returns a map of fields and values.
+    */
     function readFormFields() {
         fields = $('#appointment-form .form-ele')
         modalData = {};
         fields.map(field => modalData[fields[field].id.substr(3)] = fields[field].value)
+
         return modalData;
     }
 
@@ -26,18 +30,40 @@
         return  appointmentDate.toDateString() + ' at ' + appointmentDate.toLocaleTimeString().substr(0, 5);
     }
 
-    function populateModal() {
-        formData = readFormFields();
-        let modalPlaceholders = $('#ModalContent .field_value');
-        modalPlaceholders.map(placeholder =>
-                $('#' + modalPlaceholders[placeholder].id).text(
-                    modalPlaceholders[placeholder].id.substr(4) === 'visiting_on'
-                    ? formatDate(formData[modalPlaceholders[placeholder].id.substr(4)])
-                    : formData[modalPlaceholders[placeholder].id.substr(4)]
-                )
-        )
+    function format_for_modal(formData) {
+        if (formData['patient_id'] != ''){
+            formData['patient_id'] = '(#' + formData['patient_id'] + ')';
+        }
+        return formData;
     }
-    // TODO validate form
+
+    function populateModal() {
+        if(validateForm())
+        {
+            formData = format_for_modal(readFormFields());
+            let modalPlaceholders = $('.field_value');
+            modalPlaceholders.map(placeholder =>
+                    $('#' + modalPlaceholders[placeholder].id).text(
+                        modalPlaceholders[placeholder].id.substr(4) === 'visiting_on'
+                        ? formatDate(formData[modalPlaceholders[placeholder].id.substr(4)])
+                        : formData[modalPlaceholders[placeholder].id.substr(4)]
+                    )
+            )
+            $('#myModal').modal('show');
+        } else {
+            console.log('invalid form bro');
+        }
+    }
+
+    /**
+    * Validates the form before opening the modal.
+    */
+    function validateForm() {
+      formData = readFormFields();
+      emptyFields = Object.keys(formData).filter(field => formData[field] === '' || formData[field] == -1);
+
+      return emptyFields.length > 2 ? false : true;
+    }
 </script>
 {% if msg %}
 <br>
@@ -54,12 +80,12 @@
 {% if not msg.only %}
 <div class="amcls-banner">
 	<div class="heading">
-		<h1>Appoint My Doctor</h1>
+		<h1>Make an appointment</h1>
 	</div>
     <div class="container_1">
         <div class="heading">
-            <h2>Please Enter Patients Details</h2>
-            <p>Fill the form below and submit your query we will contact you as soon as possible.</p>
+            <h2>Enter Patients Details</h2>
+            <p>Fill the details below to book an appointment.</p>
         </div>
         <form id="appointment-form" action="" method="post">
             {% csrf_token %}
@@ -155,7 +181,7 @@
                                     });
                                 </script>
                             </div>
-                            {{ form.visitin_on.errors }}
+                            {{ form.visiting_on.errors }}
                         </div>
                     </li>
                     <li>
@@ -178,42 +204,63 @@
                         </div>
                     </li>
                 </ul>
-                <a href="#" data-toggle="modal" class="submit-button" data-target="#myModal" onclick="populateModal()">Book appointment</a>
+                <span class="submit-button" data-target="#myModal" onclick="populateModal()">Book appointment</span>
             </div>
             <!-- modal -->
             <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
 		        <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            Confirm appointment details
+                            Confirm appointment
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                             <div class="modal-body">
                                 <img src="{% static 'amcweb/images/gs7.jpg' %}" alt="Appointment confirmation image" class="img-responsive" />
                                 <p id="ModalContent">
                                     <!-- Do not change the IDs of the following spans. Used to populate data. -->
-                                    <span class="field_value" id="mdl_name">No data</span> &nbsp;
-                                    (#<span class="field_value" id="mdl_patient_id">No data</span>)
+                                    <span class="field_value" id="mdl_name"></span> &nbsp;
+                                    <span class="field_value" id="mdl_patient_id"></span>
                                     <br>
                                     booking an appointment on
                                     <br>
                                     <strong>
-                                        <span class="field_value" id="mdl_visiting_on" style="font-size: 2em;">No data</span>
+                                        <span class="field_value" id="mdl_visiting_on" style="font-size: 2em;"></span>
                                     </strong>
                                     <br>
                                     for
                                     <strong>
-                                        <span class="field_value" id="mdl_purpose" style="font-size: 1.2em;">No data</span>
+                                        <span class="field_value" id="mdl_purpose" style="font-size: 1.2em;"></span>
                                     </strong>
                                     <br>
                                     Your details are as follows:
                                     <br>
-                                    <span class="field_value" id="mdl_gender">No data</span>
-                                    <span class="field_value" id="mdl_birth_year">No data</span>
-                                    <span class="field_value" id="mdl_contact">No data</span>
-                                    <span class="field_value" id="mdl_email">No data</span>
+                                    <table class="modal_tbl">
+                                        <tr>
+                                            <td>Gender</td>
+                                            <td>
+                                                <span class="field_value" id="mdl_gender"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Contact</td>
+                                            <td>
+                                                <span class="field_value" id="mdl_contact"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Birth Year</td>
+                                            <td>
+                                                <span class="field_value" id="mdl_birth_year"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>
+                                                <span class="field_value" id="mdl_email"></span>
+                                            </td>
+                                        </tr>
+                                    </table>
                                     <br>
-                                    <span class="field_value" id="mdl_comment">No data</span>
                                 </p>
                                 <input id="appointment_submit" visibile="false" type="submit" value="Confirm Appointment">
                             </div>
