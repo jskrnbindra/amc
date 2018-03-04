@@ -187,6 +187,8 @@ input[type="submit"]:hover {
     letter-spacing: 1px;
     outline: 0;
     cursor: pointer;
+    max-width: 250px;
+    text-align: center;
 }
 .submit-button:hover {
     background-color: #ff9900;
@@ -203,8 +205,22 @@ input[type="submit"]:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+.modal-body{
+    padding: 30px;
+}
 #ModalContent {
     text-align: center;
+}
+.modal_tbl{
+    width: 100%;
+    text-align: center;
+    color: #999;
+}
+.modal_tbl td:nth-child(1) {
+    font-weight: bold;
+}
+.modal_tbl td {
+    border: 1px solid;
 }
 input.year {
 	width: 31% !important;
