@@ -266,7 +266,8 @@
                                     <br>
                                 </p>
                                 You will receive an email confirmation once you confirm this appointment.
-                                <input id="appointment_submit" visibile="false" type="submit" value="Confirm Appointment">
+                                <input id="appointment_submit" type="submit" value="Confirm Appointment">
+                                <img src="{% static 'amcweb/gifs/amc-loader.gif' %}" id="subscribe_spinner" alt="loading..." height="40px" style="display:none" />
                             </div>
                     </div>
 		        </div>
@@ -274,6 +275,10 @@
             <!-- //modal -->
         </form>
         <script>
+            $('#appointment_submit').on('click', () => {
+                $('#subscribe_spinner').show();
+                $('#appointment_submit').hide();
+                });
             $('#pat_id_spinner').hide();
             $('#id_patient_id').on('blur', () => {
                 $('#pat_name').text('');
@@ -302,7 +307,6 @@
                 $('#pat_name_inst').hide()
                 $('#pat_name_inst2').show()
                 $('#pat_name').text('');
-
             });
         </script>
     </div>
