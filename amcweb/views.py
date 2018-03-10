@@ -13,7 +13,8 @@ from .utils.smser import send_sms
 
 def index(request):
     if request.method == 'POST':
-        subscriber = Subscriber(request.POST['email'], request.POST['name'], request.POST['phone'])
+        phone = request.POST['phone'] if len(request.POST['phone']) > 0 else None
+        subscriber = Subscriber(request.POST['email'], request.POST['name'], phone)
         try:
             new_sub = subscriber.save()
         except errors.AutoReconnect:
