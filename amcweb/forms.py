@@ -3,21 +3,9 @@ from datetime import datetime, date
 from django import forms
 
 from amcweb.utils.mongo_utils import next_count
+from amcweb.utils.form_utils import get_errors
 from .config import APPOINTMENT_TYPES
 from .models import Patient, Appointment
-
-
-def required_msg(required_suffix):
-    return f'You forgot to enter {required_suffix}.🤷‍'
-
-def invalid_msg(invalid_suffix):
-    return f'That does not looks like a valid {invalid_suffix}.🤔'
-
-def get_errors(invalid_suffix, required_suffix):
-    return {
-        'invalid': invalid_msg(invalid_suffix),
-        'required': required_msg(required_suffix)
-    }
 
 
 class AppointmentForm(forms.Form):
@@ -130,13 +118,5 @@ class AppointmentForm(forms.Form):
         patient.save()
 
 
-# wrong patient id entered case......kinda handeled with name lookup
-# duplicate patient created on new_patient
-# dad bookin an appointment by filling his details but appointment is for kid
-
-
 class SubscribeEmail(forms.Form):
     email = forms.EmailField(error_messages=get_errors('email', 'your email'))
-
-    def done_here(self):
-        print('done ho gya')
