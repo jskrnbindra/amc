@@ -44,3 +44,27 @@ EMAIL_TEMPLATES = {
         'to': ['bindrajskrn@yahoo.com', 'jskrnbindra@gmail.com']
     }
 }
+
+SMS_TEMPLATES = {
+    'new_subscriber': {
+        'from': 'TXTLCL',
+        'body': 'Welcome to Ayurveda Multispeciality Centre. Hi %s, welcome to AMC. This is just a test.'
+    },
+    'new_subscriber_admin': {
+        'from': 'TXTLCL',
+        'body': 'New subscriber !!\n%s just subscribed to our mailing list. This is just a test.',
+        'to': ['8559078127', '9876100870']
+    },
+    'new_appointment': {
+        'from': 'TXTLCL',
+        'body': 'Hi %s, your appointment has been confirmed. This is just a test.'
+    },
+    'new_appointment_admin': {
+        'from': 'TXTLCL',
+        'body': 'New appointment !!\nA new appointment has been made by %s. This is just a test.',
+        'to': ['8559078127', '9876100870']
+    }
+}
+
+SMS_API_KEY = 'qQZeuTjI3xc-SaErzudatuPEZWGwYw6lHEvvVj8bUC'
+SMS_API_URL = 'https://api.textlocal.in/send/?'
