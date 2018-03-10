@@ -19,3 +19,12 @@
     height: 30px;
     margin: 10px 0 0 45%;
 }
+.msg-close-btn {
+    float: right;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+.msg-close-btn:hover {
+    opacity: .7;
+    cursor: pointer;
+}

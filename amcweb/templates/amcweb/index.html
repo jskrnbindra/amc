@@ -7,8 +7,11 @@ This is a title test bro
 
 {% block main_content %}
 	<!-- banner -->
-    <div class="top-message" style="background-color: {{ err|yesno:'red,forestgreen,orange' }};">
+    <div class="top-message" id="top_msg" style="background-color: {{ err|yesno:'red,forestgreen,orange' }};">
         {{ msg }}
+        {% if msg %}
+                <span close-target="top_msg" class="msg-close-btn">&times;</span>
+        {% endif %}
         {% if err %}
             {% if err and form %}
                 <script>
@@ -22,8 +25,8 @@ This is a title test bro
                 </script>
             {% endif %}
         {% endif %}
-
     </div>
+
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
@@ -340,6 +343,10 @@ This is a title test bro
 	</div>
     <script>
         $('#frm_subscribe').on('submit', e => $('#subscribe_spinner').show());
+        $('.msg-close-btn').on('click', e => {
+            msg_to_close = e.target.attributes['close-target'].value;
+            $(`#${msg_to_close}`).hide();
+            });
     </script>
 
 	<!-- modal -->
