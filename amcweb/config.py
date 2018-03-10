@@ -30,7 +30,7 @@ EMAIL_TEMPLATES = {
         'from': 'admin@ayurvedaludhiana.com',
         'subject': 'New subscriber - %s',
         'body': '%s just subscribed to our mailing list. This is just a test of our automated mail alerts.',
-        'to': ['psingh070@gmail.com', 'bindrajskrn@yahoo.com', 'amcludhianaa@gmail.com', 's.k.sodhi070@gmail.com']
+        'to': ['bindrajskrn@yahoo.com', 'jskrnbindra@gmail.com']
     },
     'new_appointment': {
         'from': 'no-reply@ayurvedaludhiana.com',
@@ -41,6 +41,6 @@ EMAIL_TEMPLATES = {
         'from': 'admin@ayurvedaludhiana.com',
         'subject': 'New appointment - %s',
         'body': 'A new appointment has been made by %s. This is just a test of our automated mail alerts.',
-        'to': ['psingh070@gmail.com', 'bindrajskrn@yahoo.com', 'amcludhianaa@gmail.com', 's.k.sodhi070@gmail.com']
+        'to': ['bindrajskrn@yahoo.com', 'jskrnbindra@gmail.com']
     }
 }

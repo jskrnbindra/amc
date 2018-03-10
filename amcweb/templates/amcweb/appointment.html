@@ -97,11 +97,11 @@
                             Already have your patient number?
                         </label>
                         <div class="form-input">
-                            {{ form.patient_id|attr:'placeholder:Enter patient number'|add_class:'form-ele' }}
+                            {{ form.patient_id|attr:'placeholder:Patient number'|add_class:'form-ele' }}
                             <img src="{% static 'amcweb/gifs/amc-loader.gif' %}" id="pat_id_spinner" alt="loading..." height="40px" style="display:none" />
                             <span id="pat_name"></span>
-                            <span href="#" id="pat_name_inst" style="display:none">Not you?</span>
-                            <span href="#" id="pat_name_inst2" style="display:none">Re-enter correct patient number</span>
+                            <span id="pat_name_inst" style="display:none">Not you?</span>
+                            <span id="pat_name_inst2" style="display:none">Re-enter correct patient number</span>
                             {{ form.patient_id.errors }}
                         </div>
                     </li>
