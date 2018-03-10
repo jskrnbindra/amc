@@ -6,7 +6,7 @@ from mongoengine import errors as mngoengerrs
 from pymongo import errors
 
 from .forms import AppointmentForm, SubscribeEmail
-from .models import Appointment, Patient, Prescription, Subscriber
+from .models import Appointment, Patient, Prescription, Subscriber  # Do not remove these dependencies, they're used
 from .utils.mailer import mail
 from .utils.smser import send_sms
 
@@ -34,7 +34,7 @@ def index(request):
 
         context = {'msg': "You've been subscribed to the newsletter. 🙂"}
         mail('new_subscriber', {'name': new_sub.name, 'email': new_sub.email})
-        send_sms('new_subscriber', {'name': new_sub.name, 'numbers': '8559078127'})
+        send_sms('new_subscriber', {'name': new_sub.name, 'numbers': phone})
         return render(request, 'amcweb/index.html', context)
 
     return render(request, 'amcweb/index.html', {})
