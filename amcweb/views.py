@@ -1,35 +1,13 @@
-from django.core.mail import send_mail
 from django.shortcuts import render
-from django.urls import reverse
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
 from mongoengine import errors as mngoengerrs
 from pymongo import errors
 
-from .config import EMAIL_TEMPLATES
 from .forms import AppointmentForm, SubscribeEmail
 from .models import Appointment, Patient, Prescription, Subscriber
-
-
-def mail(email_template, context):
-    template = EMAIL_TEMPLATES[email_template]
-    send_mail(
-        template['subject'],
-        template['body'] % context['name'],
-        template['from'],
-        [context['email']],
-        fail_silently=False
-        )
-
-    template = EMAIL_TEMPLATES[email_template + '_admin']
-    send_mail(
-        template['subject'] % context['name'],
-        template['body'] % context['name'],
-        template['from'],
-        template['to'],
-        fail_silently=False
-    )
+from .utils.mailer import mail
 
 
 def index(request):
