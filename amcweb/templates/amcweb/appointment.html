@@ -62,8 +62,15 @@
     function validateForm() {
       formData = readFormFields();
       emptyFields = Object.keys(formData).filter(field => formData[field] === '' || formData[field] == -1);
+      var requiredFields = ['name', 'gender', 'birth_year', 'contact', 'visiting_on', 'purpose']
 
-      return emptyFields.length > 2 ? false : true;
+      // checking if any required field is missed
+      missingRequiredField = false;
+      emptyFields.forEach(field =>
+        missingRequiredField = requiredFields.filter(reqField => reqField == field).length > 0 ? true : missingRequiredField
+      );
+
+      return !missingRequiredField
     }
 </script>
 {% if msg %}

@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	font-size: 100%;
 	background: #fff;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Philosopher', sans-serif;
 }
 
 body a {
@@ -115,7 +115,6 @@ button.close {
 
 .header_left ul li i {
 	padding-right: 1em;
-	color: #ff9900;
 }
 
 .header_left ul li a {
@@ -142,7 +141,7 @@ ul.forms_right {
 }
 
 ul.forms_right li a {
-	background: #ff9900;
+	background: #166db4;
 	color: #fff;
 	font-size: 0.9em;
 	padding: 0.6em 1em;
@@ -151,7 +150,7 @@ ul.forms_right li a {
 }
 
 ul.forms_right li a:hover {
-	background: #fba82b;
+	background: #2f8cd8;
 }
 
 ul.forms_right li a.active {
@@ -165,7 +164,7 @@ ul.forms_right li {
 
 .top_menu_Sodhis {
 	padding: 0.5em 0em;
-	background: #146eb4;
+	background: #319f29;
 }
 
 .content {
@@ -284,20 +283,20 @@ ul.forms_right li {
 }
 
 .navbar-nav>li>a.active {
-	color: #146eb4;
+	color: #319f29;
 	background: none;
 }
 
 .navbar-default .navbar-nav>.open>a,
 .navbar-default .navbar-nav>.open>a:hover,
 .navbar-default .navbar-nav>.open>a:focus {
-	color: #146eb4;
+	color: #319f29;
 	background: none;
 }
 
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
-	color: #146eb4;
+	color: #319f29;
 	background: none;
 }
 
@@ -347,7 +346,7 @@ ul.forms_right li {
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
-	color: #146eb4;
+	color: #319f29;
     background: none;
 }
 
@@ -834,7 +833,7 @@ span.eme {
 }
 .grid1 i.fa {
     font-size: 40px;
-    color: #146eb4;
+    color: #319f29;
 }
 /* //services */
 /*-- /testimonials --*/
@@ -1048,7 +1047,7 @@ a.read-agileits {
     letter-spacing: 2px;
     font-weight: 600;
     font-size: 18px;
-    color: #146eb4;
+    color: #319f29;
 }
 a.read-agileits:hover {
     color: #ff9900;
@@ -1238,7 +1237,7 @@ a.read-agileits:hover {
     box-shadow:0px 1px 1px 1px #ccc;
 }
 .panel-title a {
-    background: #146eb4;
+    background: #319f29;
 	color:#fff;
 	text-decoration: none;
     display: block;
