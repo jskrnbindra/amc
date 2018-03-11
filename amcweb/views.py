@@ -6,6 +6,7 @@ from .forms import AppointmentForm, SubscribeEmail
 from .handlers.subscribe_form import new_subscriber_handler
 from .models import Appointment, Patient, Prescription  # Do not remove these dependencies, they're used
 from .utils.mailer import mail
+from .utils.smser import send_sms
 
 
 def index(request):
@@ -27,6 +28,7 @@ class MakeAppointment(FormView):
     def form_valid(self, form):
         form.create_appointment(form.cleaned_data)
         mail('new_appointment', {'name': form.cleaned_data['name'], 'email': form.cleaned_data['email']})
+        send_sms('new_appointment', {'name': form.cleaned_data['name'], 'numbers': form.cleaned_data['contact']})
         return render(self.request, 'amcweb/appointment.html', {'msg': {'msg': 'ye le', 'only': True, 'appointment': form.cleaned_data}})
 
     def form_invalid(self, form):

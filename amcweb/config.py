@@ -53,7 +53,7 @@ SMS_TEMPLATES = {
     'new_subscriber_admin': {
         'from': 'TXTLCL',
         'body': 'New subscriber !!\n%s just subscribed to our mailing list. This is just a test.',
-        'to': ['8559078127', '9876100870']
+        'to': ['8559078127', '9988255277']
     },
     'new_appointment': {
         'from': 'TXTLCL',
@@ -62,7 +62,7 @@ SMS_TEMPLATES = {
     'new_appointment_admin': {
         'from': 'TXTLCL',
         'body': 'New appointment !!\nA new appointment has been made by %s. This is just a test.',
-        'to': ['8559078127', '9876100870']
+        'to': ['8559078127', '9988255277']
     }
 }
 
