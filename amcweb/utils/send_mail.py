@@ -26,6 +26,6 @@ class SendMail(threading.Thread):
                 self.email['to'],
                 fail_silently=False
             )
-            print('DONE sending mail')
+            print(f"Mail sent to:{self.email['to']}")
         except SMTPException:
             print(f'Error: Mail could not be sent.')
