@@ -1,4 +1,4 @@
-from amcweb.utils.send_mail import SendMail
+from amcweb.utils.notifications.send_mail import SendMail
 
 from amcweb.config import EMAIL_TEMPLATES
 

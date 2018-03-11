@@ -2,11 +2,10 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
-from .forms import AppointmentForm, SubscribeEmail
+from .forms import AppointmentForm
 from .handlers.subscribe_form import new_subscriber_handler
-from .models import Appointment, Patient, Prescription  # Do not remove these dependencies, they're used
-from .utils.mailer import mail
-from .utils.smser import send_sms
+from amcweb.utils.notifications.mailer import mail
+from amcweb.utils.notifications.smser import send_sms
 
 
 def index(request):

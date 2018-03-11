@@ -1,7 +1,7 @@
 from functools import reduce
 
 from amcweb.config import SMS_TEMPLATES
-from amcweb.utils.send_sms import SendSMS
+from amcweb.utils.notifications.send_sms import SendSMS
 
 
 def send_sms(sms_template, context, inform_admin=True):

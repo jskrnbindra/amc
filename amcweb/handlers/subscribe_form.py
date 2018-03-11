@@ -1,10 +1,10 @@
-from amcweb.utils.smser import send_sms
+from amcweb.utils.notifications.smser import send_sms
 
 from mongoengine import errors as mngoengerrs
 from pymongo import errors
 
-from amcweb.models import Appointment, Patient, Prescription, Subscriber  # Don't remove these imports, they're used
-from amcweb.utils.mailer import mail
+from amcweb.models import Subscriber  # Don't remove these imports, they're used
+from amcweb.utils.notifications.mailer import mail
 
 
 def new_subscriber_handler(request):
