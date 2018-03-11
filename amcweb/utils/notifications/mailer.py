@@ -4,8 +4,8 @@ from amcweb.config import EMAIL_TEMPLATES
 
 
 def mail(email_template, context, inform_admin=True):
-
-    SendMail(email_context(email_template, context)).start()
+    if 'email' in context:
+        SendMail(email_context(email_template, context)).start()
 
     if inform_admin:
         SendMail(email_context_admin(email_template, context)).start()
