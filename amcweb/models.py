@@ -53,7 +53,7 @@ class Patient(Document):
     country = StringField(max_length=100)
     problem = StringField(max_length=200)
     doctor_feedback = StringField(max_length=200) # fraud patient etc
-    comments = StringField(max_length=10000)
+    comments = StringField(max_length=5000)
     prescriptions = EmbeddedDocumentListField(Prescription)
     appointments = EmbeddedDocumentListField(Appointment)
     # history of prescriptions from prescription collection
@@ -61,6 +61,11 @@ class Patient(Document):
 
 
 class Subscriber(Document):
+    """
+       Represents a subscriber.
+       """
+    meta = {'collection': 'subscribers'}
+
     name = StringField(max_length=150, required=True)
     email = EmailField(primary_key=True)
     phone = StringField(min_length=10, max_length=17, required=False)

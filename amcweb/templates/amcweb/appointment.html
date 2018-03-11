@@ -70,7 +70,7 @@
         missingRequiredField = requiredFields.filter(reqField => reqField == field).length > 0 ? true : missingRequiredField
       );
 
-      return !missingRequiredField
+      return !missingRequiredField;
     }
 </script>
 {% if msg %}
@@ -311,9 +311,15 @@
 
             $('#pat_name_inst').on('click', () => {
                 $('#id_patient_id').val('');
-                $('#pat_name_inst').hide()
-                $('#pat_name_inst2').show()
+                $('#pat_name_inst').hide();
+                $('#pat_name_inst2').show();
                 $('#pat_name').text('');
+            });
+
+            $(document).on("keypress", ":input:not(textarea):not([type=submit])", e => {
+                if (event.keyCode == 13) {
+                   event.preventDefault();
+                }
             });
         </script>
     </div>

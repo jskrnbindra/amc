@@ -16,7 +16,7 @@ class AppointmentForm(forms.Form):
     birth_year = forms.ChoiceField(choices=[(-1, '--')] + [x for x in list(map(lambda x: (x, x), reversed(range(1901, date.today().year + 1))))], error_messages=get_errors('birth year', 'your birth year'))
     visiting_on = forms.DateTimeField(input_formats=['%m/%d/%Y %H:%M'], error_messages=get_errors('visiting date', 'a visiting date'))
     purpose = forms.ChoiceField(choices=[(-1, '--')] + [(x, x) for i, x in enumerate(APPOINTMENT_TYPES)], error_messages=get_errors('appointment type', 'an appointment type'))
-    comment = forms.RegexField(strip=True, regex='^[a-zA-Z0-9. ]+$', required=False, max_length=500, widget=forms.Textarea, error_messages=get_errors('comment', 'comment'))
+    comment = forms.RegexField(strip=True, regex='^[-a-zA-Z0-9.!@&\/)(\*\$ \\r \\n]+$', required=False, max_length=500, widget=forms.Textarea, error_messages=get_errors('comment', 'comment'))
     patient_id = forms.IntegerField(required=False, min_value=1, error_messages=get_errors('patient number', 'your patient number'))
 
     def clean_gender(self):
