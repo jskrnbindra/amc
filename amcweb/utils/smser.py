@@ -1,33 +1,30 @@
-import urllib.request
-import urllib.parse
-from amcweb.config import SMS_API_KEY, SMS_API_URL, SMS_TEMPLATES
+from functools import reduce
+
+from amcweb.config import SMS_TEMPLATES
+from amcweb.utils.send_sms import SendSMS
 
 
-def send_sms(sms_template, context):
-    template = SMS_TEMPLATES[sms_template]
-    data = urllib.parse.urlencode({'apikey': SMS_API_KEY,
-                                   'numbers': context['numbers'],
-                                   'message': template['body'] % context['name'],
-                                   'sender': template['from']
-                                   })
-    data = data.encode('utf-8')
-    request = urllib.request.Request(SMS_API_URL)
+def send_sms(sms_template, context, inform_admin=True):
     if context['numbers']:
-        f = urllib.request.urlopen(request, data)
-        resp = f.read()
-        read_sms_resp(resp)
+        SendSMS(sms_context(sms_template, context)).start()
 
+    if inform_admin:
+        SendSMS(sms_context_admin(sms_template, context)).start()
+
+
+def sms_context(sms_template, context):
+    template = SMS_TEMPLATES[sms_template]
+    return {
+        'body': template['body'] % context['name'],
+        'sender': template['from'],
+        'to': context['numbers']
+    }
+
+
+def sms_context_admin(sms_template, context):
     template = SMS_TEMPLATES[sms_template + '_admin']
-    data = urllib.parse.urlencode({'apikey': SMS_API_KEY,
-                                   'numbers': template['to'],
-                                   'message': template['body'] % context['name'],
-                                   'sender': template['from']
-                                   })
-    data = data.encode('utf-8')
-    f = urllib.request.urlopen(request, data)
-    print('admin sms response')
-    print(f.read())
-
-
-def read_sms_resp(resp):
-    print(resp)
+    return {
+        'body': template['body'] % context['name'],
+        'sender': template['from'],
+        'to': reduce(lambda x, y: f'{x},{y}', template['to'], '').strip(',')
+    }

@@ -66,5 +66,6 @@ SMS_TEMPLATES = {
     }
 }
 
-SMS_API_KEY = 'qQZeuTjI3xc-SaErzudatuPEZWGwYw6lHEvvVj8bUC'
+SMS_API_KEY = '******************************************'
 SMS_API_URL = 'https://api.textlocal.in/send/?'
+SMS_TEST_MODE = True  # disable in PROD
