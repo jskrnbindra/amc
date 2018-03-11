@@ -3,15 +3,19 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
 from .forms import AppointmentForm
-from .handlers.subscribe_form import new_subscriber_handler
+from .handlers.subscribe_form import new_subscriber_handler, new_whatsapp_subscriber_handler
 from amcweb.utils.notifications.mailer import mail
 from amcweb.utils.notifications.smser import send_sms
 
 
 def index(request):
     if request.method == 'POST':
-        context = new_subscriber_handler(request)
-        return render(request, 'amcweb/index.html', context)
+        if request.POST['type'] == 'subscribe':
+            context = new_subscriber_handler(request)
+            return render(request, 'amcweb/index.html', context)
+        elif request.POST['type'] == 'whatsapp_subscribe':
+            context = new_whatsapp_subscriber_handler(request)
+            return render(request, 'amcweb/index.html', context)
 
     return render(request, 'amcweb/index.html', {})
 

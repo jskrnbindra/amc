@@ -32,6 +32,17 @@ EMAIL_TEMPLATES = {
         'body': '%s just subscribed to our mailing list. This is just a test of our automated mail alerts.',
         'to': ['bindrajskrn@yahoo.com', 'jskrnbindra@gmail.com']
     },
+    'new_whatsapp_subscriber': {
+        'from': 'no-reply@ayurvedaludhiana.com',
+        'subject': 'Welcome to Ayurveda Multispeciality Centre',
+        'body': 'Hi %s, welcome to Ayurveda Multispeciality Centre whatsapp list. This is just a test.'
+    },
+    'new_whatsapp_subscriber_admin': {
+        'from': 'admin@ayurvedaludhiana.com',
+        'subject': 'New whatsapp subscriber - %s',
+        'body': '%s just subscribed to our whatsapp list. This is just a test of our automated mail alerts.',
+        'to': ['bindrajskrn@yahoo.com', 'jskrnbindra@gmail.com']
+    },
     'new_appointment': {
         'from': 'no-reply@ayurvedaludhiana.com',
         'subject': 'Your appointment has been confirmed',
@@ -53,7 +64,16 @@ SMS_TEMPLATES = {
     'new_subscriber_admin': {
         'from': 'TXTLCL',
         'body': 'New subscriber !!\n%s just subscribed to our mailing list. This is just a test.',
-        'to': ['8559078127', '9988255277']
+        'to': ['8559078127']
+    },
+    'new_whatsapp_subscriber': {
+        'from': 'TXTLCL',
+        'body': 'Welcome to Ayurveda Multispeciality Centre. Hi %s, welcome to whatsapp AMC. This is just a test.'
+    },
+    'new_whatsapp_subscriber_admin': {
+        'from': 'TXTLCL',
+        'body': 'New whatsapp subscriber !!\n%s just subscribed to our whatsapp list. This is just a test.',
+        'to': ['8559078127']
     },
     'new_appointment': {
         'from': 'TXTLCL',
@@ -62,7 +82,7 @@ SMS_TEMPLATES = {
     'new_appointment_admin': {
         'from': 'TXTLCL',
         'body': 'New appointment !!\nA new appointment has been made by %s. This is just a test.',
-        'to': ['8559078127', '9988255277']
+        'to': ['8559078127']
     }
 }
 

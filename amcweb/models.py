@@ -63,12 +63,22 @@ class Patient(Document):
 class Subscriber(Document):
     """
        Represents a subscriber.
-       """
+    """
     meta = {'collection': 'subscribers'}
 
     name = StringField(max_length=150, required=True)
     email = EmailField(primary_key=True)
     phone = StringField(min_length=10, max_length=17, required=False)
+
+
+class WhatsappSubscriber(Document):
+    """
+    Represents a whatsapp subscriber.
+    """
+    meta = {'collection': 'WhatsappSubscribers'}
+
+    name = StringField(max_length=150, required=False)
+    phone = StringField(min_length=10, max_length=17, required=True)
 
 
 class Counter(Document):

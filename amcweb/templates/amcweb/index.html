@@ -328,15 +328,24 @@ This is a title test bro
 					</span>
 				</h3>
 			</div>
-            <form action="{% url 'amcweb:index' %}" method="post" id="frm_subscribe">
+            <form action="{% url 'amcweb:index' %}" method="POST" id="frm_subscribe">
                 {% csrf_token %}
+                <input type="hidden" name="type" value="subscribe" />
                 <input type="text" id="ff_name" class="sub-email" name="name" placeholder="Full Name" required/>
                 <input type="email" id="ff_email" class="sub-email" name="email" placeholder="Your email address" required/>
                 <input type="tel" id="ff_phone" class="sub-email" name="phone" placeholder="Phone number (optional)" />
                 <br>
 				<input type="submit" value="Subscribe" id="btn_subscribe" />
                 <img src="{% static 'amcweb/gifs/amc-loader.gif' %}" id="subscribe_spinner" alt="loading..." height="40px" style="display:none" />
-
+            </form>
+            <form action="{% url 'amcweb:index' %}" method="POST" id="frm_whatsapp">
+                {% csrf_token %}
+                <input type="hidden" name="type" value="whatsapp_subscribe" />
+                <input type="text" id="ff_name1" class="sub-email" name="name" placeholder="Full Name" required/>
+                <input type="tel" id="ff_phone_whatsapp" class="sub-email" name="phone" placeholder="Phone number (optional)" />
+                <br>
+				<input type="submit" value="Subscribe" id="btn_whatsapp" />
+                <img src="{% static 'amcweb/gifs/amc-loader.gif' %}" id="whatsapp_spinner" alt="loading..." height="40px" style="display:none" />
             </form>
             <div class="clearfix"> </div>
 			</div>
