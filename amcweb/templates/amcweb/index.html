@@ -39,16 +39,16 @@ This is a title test bro
 			<div class="item active">
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>With a Touch of <span>Kindness.</span></h3>
-						<p>Child Care Treatments</p>
-						<h6>Our Medical Center is the preferred choice for diplomats and employees from 64 embassies, consulates and UN agencies, as well as private patients from over 60 countries.</h6>
+						<h3><span></span></h3>
+						<p></p>
+						<h6></h6>
 					</div>
 				</div>
 			</div>
 			<div class="item item2">
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>With a Touch of <span>Kindness.</span></h3>
+						<h3>With a Touch of <span>nature.</span></h3>
 						<p>Child Care Treatments</p>
 						<h6>Our Medical Center is the preferred choice for diplomats and employees from 64 embassies, consulates and UN agencies, as well as private patients from over 60 countries.</h6>
 					</div>
@@ -57,7 +57,7 @@ This is a title test bro
 			<div class="item item3">
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>With a Touch of <span>Kindness.</span></h3>
+						<h3>With a Touch of <span>nature.</span></h3>
 						<p>Child Care Treatments</p>
 						<h6>Our Medical Center is the preferred choice for diplomats and employees from 64 embassies, consulates and UN agencies, as well as private patients from over 60 countries.</h6>
 					</div>
@@ -66,7 +66,7 @@ This is a title test bro
 			<div class="item item4">
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>With a Touch of <span>Kindness.</span></h3>
+						<h3>With a Touch of <span>nature.</span></h3>
 						<p>Child Care Treatments</p>
 						<h6>Our Medical Center is the preferred choice for diplomats and employees from 64 embassies, consulates and UN agencies, as well as private patients from over 60 countries.</h6>
 					</div>
@@ -88,7 +88,7 @@ This is a title test bro
 	<div class="agile-about amcls-section">
 	<!-- about-bottom -->
 	<div class="agileits-about-btm">
-	<h3 class="heading-agileinfo">Welcome To Our Clinic!<span>We offer extensive medical procedures to outbound and inbound patients.</span></h3>
+	<h3 class="heading-agileinfo">Ayurveda Multispeciality Centre<span>We offer extensive medical procedures to outbound and inbound patients.</span></h3>
 		<div class="container">
 			<div class="amc-flex">
 			<div class="col-md-4 col-sm-4 ab1 agileits-about-grid1">
@@ -330,8 +330,9 @@ This is a title test bro
 			</div>
             <form action="{% url 'amcweb:index' %}" method="POST" id="frm_subscribe">
                 {% csrf_token %}
+                <img src="{% static 'amcweb/icons/mail.png' %}" alt="Email" class="sub-icon" height="40" />
                 <h4>
-                    Subscribe to the get articles in your mail
+                    Subscribe to the get articles in your e-mail
                 </h4>
                 <input type="hidden" name="type" value="subscribe" />
                 <input type="text" id="ff_name" name="name" placeholder="Full Name" required/>
@@ -343,6 +344,7 @@ This is a title test bro
             </form>
             <form action="{% url 'amcweb:index' %}" method="POST" id="frm_whatsapp">
                 {% csrf_token %}
+                <img src="{% static 'amcweb/icons/whatsapp.png' %}" alt="Whatsapp" class="sub-icon" height="40" />
                 <h4>Subscribe for important announcements on whatsapp</h4>
                 <input type="hidden" name="type" value="whatsapp_subscribe" />
                 <input type="text" id="ff_name1" name="name" placeholder="Full Name" required/>

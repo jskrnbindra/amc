@@ -35,7 +35,7 @@ h4,
 h5,
 h6 {
 	margin: 0;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Philosopher', sans-serif;
 }
 
 p {
@@ -59,7 +59,7 @@ label {
 /*-- bootstrap-modal-pop-up --*/
 .modal-header {
     font-size: 2em;
-    color: #ff9900;
+    color: forestgreen;
     text-align: center;
     text-transform: uppercase;
     border: 1px solid #fff;
@@ -124,7 +124,7 @@ button.close {
 }
 
 .header_left ul li a:hover {
-	color: #ff9900;
+	color: forestgreen;
 }
 
 .header_right {
@@ -267,7 +267,7 @@ ul.forms_right li {
 }
 
 .navbar-default a.navbar-brand h1 {
-    color: #ff9900;
+    color: forestgreen;
     font-weight: 700;
     margin-top: 6px;
     letter-spacing: 2px;
@@ -462,10 +462,10 @@ b.fa.fa-caret-right {
 /*-- banner --*/
 
 .carousel .item {
-	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/2.jpg) no-repeat;
-	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/2.jpg) no-repeat;
-	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/2.jpg) no-repeat;
-	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/2.jpg) no-repeat;
+	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_logo.jpg) no-repeat;
+	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_logo.jpg) no-repeat;
+	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_logo.jpg) no-repeat;
+	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_logo.jpg) no-repeat;
 	background-size: cover;
 }
 
@@ -511,7 +511,7 @@ b.fa.fa-caret-right {
 
 .carousel-caption h2 span, .carousel-caption h3 span {
     font-weight: 700;
-    color: #ff9900;
+    color: forestgreen;
 }
 
 .carousel-caption p {
@@ -539,8 +539,8 @@ b.fa.fa-caret-right {
 }
 
 .carousel-caption a:hover {
-	background: #ff9900;
-	border: 1px solid #ff9900;
+	background: forestgreen;
+	border: 1px solid forestgreen;
 }
 
 .codes {
@@ -610,7 +610,7 @@ b.fa.fa-caret-right {
     font-size: 40px;
     margin-bottom: 1.9em;
     text-align: center;
-    color: #ff9900;
+    color: forestgreen;
     text-transform: uppercase;
     position: relative;
     margin-top: 0;
@@ -688,7 +688,7 @@ a.wthree-.about-link {
     font-size: 2em;
 }
 h4.agileinfo-head {
-    color:#ff9900;
+    color:forestgreen;
     text-transform: capitalize;
     font-weight: 600;
     margin: 0.7em 0;
@@ -727,7 +727,7 @@ h4.agileinfo-head {
 }
 .emergency_cases_amcls h4 {
     font-size: 30px;
-    color: #ff9900;
+    color: forestgreen;
     letter-spacing: 2px;
     text-align: left;
     margin-bottom: 1em;
@@ -742,7 +742,7 @@ h4.agileinfo-head {
 }
 .emergency_cases_amcls_right i {
     padding-right: 0.5em;
-    color: #ff9900;
+    color: forestgreen;
 }
 span.eme {
     float: right;
@@ -814,7 +814,7 @@ span.eme {
     font-size: 20px;
     text-transform: uppercase;
     margin: 25px 0 20px;
-    color: #ff9900;
+    color: forestgreen;
     font-weight: 600;
 }
 .grid1 p {
@@ -903,7 +903,7 @@ span.eme {
 /* Changes the color of the indicators */
 
 #quote-carousel .carousel-indicators li {
-	background: #ff9900;
+	background: forestgreen;
 	width: 12px;
 	height: 12px;
 	margin: 0 2px;
@@ -943,7 +943,7 @@ span.eme {
 	font-family: 'Fontawesome';
 	float: left;
 	margin-right: 10px;
-	color: #ff9900;
+	color: forestgreen;
 	font-size: 2em;
 }
 h3.heading-agileinfo.te {
@@ -955,7 +955,7 @@ h3.heading-agileinfo.te {
 }
 
 .test_img_info h6 {
-	color: #ff9900;
+	color: forestgreen;
 	font-size: 1.1em;
 	font-weight: 600;
 	margin-bottom: 2em;
@@ -1031,11 +1031,11 @@ h3.heading-agileinfo.te {
 	border: 5px solid #fafafa;
 	line-height: 85px;
 	font-size: 2em;
-	color: #ff9900;
+	color: forestgreen;
 }
 .icon_info h5 {
     font-size: 1.4em;
-    color: #ff9900;
+    color: forestgreen;
     margin: 1em 0;
     letter-spacing: 2px;
     font-weight: 600;
@@ -1050,7 +1050,7 @@ a.read-agileits {
     color: #0d790d;
 }
 a.read-agileits:hover {
-    color: #ff9900;
+    color: forestgreen;
 }
 .icon_info p {
 	color: #666;
@@ -1343,7 +1343,7 @@ a.pa_italic:focus {
 }
 h3.icon-subheading {
     font-size: 28px;
-    color: #ff9900 !important;
+    color: forestgreen !important;
     margin: 30px 0 15px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -1509,7 +1509,7 @@ li.list-group-item1 {
 }
 .grid_5 h3, .grid_5 h2, .grid_5 h1, .grid_5 h4, .grid_5 h5, h3.hdg, h3.bars {
     margin-bottom: 1em;
-    color: #ff9900;
+    color: forestgreen;
     font-weight: 700;
     font-size: 30px;
     letter-spacing: 2px;
@@ -1802,7 +1802,7 @@ table.table.table-striped,.table-bordered,.bs-docs-example {
 	-moz-box-shadow: inset 0px 0px 3px #999;
 	-o-box-shadow: inset 0px 0px 3px #999;
 	-webkit-appearance: none;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Philosopher', sans-serif;
 }
 
 .contact-form textarea {
@@ -1811,7 +1811,7 @@ table.table.table-striped,.table-bordered,.bs-docs-example {
 }
 
 .myButton {
-	background: #ff9900;
+	background: forestgreen;
 	color: #fff;
 	font-size: 1em;
 	padding: 17px 0;
@@ -2074,7 +2074,7 @@ ul.tag2:last-child {
 }
 
 .footer_bottom1 p a {
-	color: #ff9900;
+	color: forestgreen;
 	transition: .5s ease-in;
 	-webkit-transition: .5s ease-in;
 	-moz-transition: .5s ease-in;
@@ -2186,7 +2186,7 @@ ul.tag2:last-child {
 .footer_grid h3,
 .footer_grid_left h3 {
 	font-size: 1.4em;
-	color: #ff9900;
+	color: forestgreen;
 	position: relative;
 	margin-bottom: 1.5em;
 	font-weight: 600;
@@ -2210,7 +2210,7 @@ ul.tag2:last-child {
 }
 
 .footer_grid_list li i {
-	color: #ff9900;
+	color: forestgreen;
 	padding-right: 1em;
 }
 
@@ -2293,7 +2293,7 @@ ul.tag2:last-child {
 }
 
 .footer_grid_right input[type="submit"]:hover {
-	background: #ff9900;
+	background: forestgreen;
 }
 
 ul.social-icons3.two li a {
@@ -2309,7 +2309,7 @@ ul.social-icons3.two li a {
 }
 
 .footer_amc_agile p a {
-	color: #ff9900;
+	color: forestgreen;
 	transition: .5s ease-in;
 	-webkit-transition: .5s ease-in;
 	-moz-transition: .5s ease-in;

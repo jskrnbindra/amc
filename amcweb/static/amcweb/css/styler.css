@@ -1,7 +1,3 @@
-
-.sub-email {
-
-}
 .top-message {
     text-align: center;
     background: orange;
@@ -28,35 +24,29 @@
     float: left;
     min-width: 350px;
 }
-#frm_whatsapp input[type=text],input[type=tel],input[type=email] {
+#frm_whatsapp > input[type=text],input[type=tel],input[type=email] {
     width: 70%;
     height: 40px;
-    margin: 10px 0 0 13%;
     max-width: 400px;
     padding: 5px;
+    margin-top: 10px;
 }
 #frm_subscribe input[type=text],input[type=tel],input[type=email] {
     width: 70%;
     height: 40px;
-    margin: 10px 0 0 13%;
     max-width: 400px;
     padding: 5px;
-}
-#frm_subscribe input[type=submit] {
-    width: 30%;
-    min-width: 150px;
-    height: 30px;
-    margin: 10px 0 0 35%;
+    margin-top: 10px;
 }
 .subscribe-button {
     width: 30%;
     min-width: 150px;
     height: 30px;
-    margin: 10px 0 0 35%;
     background: #0d790d;
     color: white;
     outline: none;
     border: none;
+    margin-top: 10px;
 }
 .subscribe-button:hover {
     background: forestgreen;
@@ -64,4 +54,17 @@
 }
 form[id^="frm"] {
     text-align: center;
+    margin-bottom: 30px;
+}
+.sub-icon {
+    margin: 10px;
+}
+.last-li {
+    background: #0f780d;
+}
+.last-li a {
+    color: white!important;
+}
+.last-li:hover {
+    background: forestgreen;
 }
