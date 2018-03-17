@@ -1,10 +1,6 @@
 
 .sub-email {
-    height: 40px;
-    width: 33%;
-    margin: 10px 0 0 33%;
-    max-width: 400px;
-    padding: 5px;
+
 }
 .top-message {
     text-align: center;
@@ -12,12 +8,6 @@
     line-height: 2em;
     color: white;
     font-size: 1.2em;
-}
-#frm_subscribe input[type=submit] {
-    width: 10%;
-    min-width: 150px;
-    height: 30px;
-    margin: 10px 0 0 45%;
 }
 .msg-close-btn {
     float: right;
@@ -27,4 +17,51 @@
 .msg-close-btn:hover {
     opacity: .7;
     cursor: pointer;
+}
+#frm_subscribe {
+    width: 50%;
+    float: left;
+    min-width: 350px;
+}
+#frm_whatsapp {
+    width: 50%;
+    float: left;
+    min-width: 350px;
+}
+#frm_whatsapp input[type=text],input[type=tel],input[type=email] {
+    width: 70%;
+    height: 40px;
+    margin: 10px 0 0 13%;
+    max-width: 400px;
+    padding: 5px;
+}
+#frm_subscribe input[type=text],input[type=tel],input[type=email] {
+    width: 70%;
+    height: 40px;
+    margin: 10px 0 0 13%;
+    max-width: 400px;
+    padding: 5px;
+}
+#frm_subscribe input[type=submit] {
+    width: 30%;
+    min-width: 150px;
+    height: 30px;
+    margin: 10px 0 0 35%;
+}
+.subscribe-button {
+    width: 30%;
+    min-width: 150px;
+    height: 30px;
+    margin: 10px 0 0 35%;
+    background: #0d790d;
+    color: white;
+    outline: none;
+    border: none;
+}
+.subscribe-button:hover {
+    background: forestgreen;
+    transition: none;
+}
+form[id^="frm"] {
+    text-align: center;
 }

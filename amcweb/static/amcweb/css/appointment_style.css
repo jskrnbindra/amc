@@ -73,7 +73,7 @@ a:focus, a:hover {
 }
 .heading h2 {
     font-weight: 400;
-    color: #319f29;
+    color: #0d790d;
 }
 .heading p {
     font-size: 16px;
@@ -161,7 +161,7 @@ input[type="submit"] {
     margin: auto;
     padding: 10px 25px;
     margin-top: 25px;
-    background-color: #319f29;
+    background-color: #0d790d;
     color: white;
 	border:none;
 	outline:none;
@@ -178,7 +178,7 @@ input[type="submit"]:hover {
     display: block;
     margin: 25px auto;
     padding: 10px 25px;
-    background-color: #319f29;
+    background-color: #0d790d;
     color: white;
 	border:none;
 	outline:none;

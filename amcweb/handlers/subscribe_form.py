@@ -1,3 +1,5 @@
+import re
+
 from amcweb.utils.notifications.smser import send_sms
 
 from mongoengine import errors as mngoengerrs
@@ -7,9 +9,21 @@ from amcweb.models import Subscriber, WhatsappSubscriber  # Don't remove these i
 from amcweb.utils.notifications.mailer import mail
 
 
+def is_valid(phone):
+    return True if re.match(r'^\+?[0-9]{10,17}', phone) else False
+
+
 def new_subscriber_handler(request):
     phone = request.POST['phone'] if len(request.POST['phone']) > 0 else None
     subscriber = Subscriber(request.POST['email'], request.POST['name'], phone)
+    if phone:
+        if not is_valid(phone):
+            context = {
+                'err': 'BAD_INPUT',
+                'msg': "There were errors in the info you entered. Enter valid info."
+            }
+            return context
+
     try:
         new_sub = subscriber.save()
     except errors.AutoReconnect:
@@ -36,6 +50,13 @@ def new_subscriber_handler(request):
 
 def new_whatsapp_subscriber_handler(request):
     name = request.POST['name'] if len(request.POST['name']) > 0 else None
+    if not is_valid(request.POST['phone']):
+        context = {
+            'err': 'BAD_INPUT',
+            'msg': "There were errors in the info you entered. Enter valid info."
+        }
+        return context
+
     subscriber = WhatsappSubscriber(name, request.POST['phone'])
     try:
         new_sub = subscriber.save()
