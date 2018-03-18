@@ -68,3 +68,46 @@ form[id^="frm"] {
 .last-li:hover {
     background: forestgreen;
 }
+.last-li > a:hover {
+    background: none!important;
+    color: none!important;
+}
+.tag-line {
+    width: 350px;
+    margin: 25% auto;
+}
+#prominent_about_pic {
+    width: 50%;
+    float: left;
+    min-width: 350px;
+}
+#prominent_about_quote {
+    width: 50%;
+    float: left;
+    min-width: 350px;
+    vertical-align: middle;
+}
+#prominent_about_pic img {
+    float: right;
+    margin: 20px;
+}
+.all-treatments {
+    margin-top: 30px;
+    font-size: 1.2em;
+    color: white;
+    background: #1CC3B6;
+    text-align: center;
+    -webkit-box-shadow: 0px 1px 8px 0px rgba(158, 158, 158, 0.75);
+    -moz-box-shadow: 0px 1px 8px 0px rgba(158, 158, 158, 0.75);
+    box-shadow: 0px 1px 8px 0px rgba(158, 158, 158, 0.75);
+}
+.all-treatments:hover {
+    background: #12a297;
+}
+.all-treatments a {
+    color: white;
+    width: 100%;
+    display: block;
+    height: 100%;
+    padding: 5px 15px;
+}

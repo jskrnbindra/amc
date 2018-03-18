@@ -619,8 +619,7 @@ b.fa.fa-caret-right {
     display: block;
     font-size: 17px!important;
     margin-top: 1em;
-    letter-spacing: 4px;
-    text-transform: capitalize;
+    text-transform: none!important;
     color: #000000;
     font-weight: 500;
 }

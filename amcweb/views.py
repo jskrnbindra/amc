@@ -24,6 +24,10 @@ class About(TemplateView):
     template_name = 'amcweb/about.html'
 
 
+class Gallery(TemplateView):
+    template_name = 'amcweb/gallery.html'
+
+
 class MakeAppointment(FormView):
     template_name = 'amcweb/appointment.html'
     form_class = AppointmentForm
