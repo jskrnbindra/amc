@@ -6,7 +6,6 @@ This is a title test bro
 {% endblock %}
 
 {% block main_content %}
-	<!-- banner -->
     <div class="top-message" id="top_msg" style="background-color: {{ err|yesno:'red,forestgreen,orange' }};">
         {{ msg }}
         {% if msg %}
@@ -26,7 +25,6 @@ This is a title test bro
             {% endif %}
         {% endif %}
     </div>
-
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
@@ -83,11 +81,7 @@ This is a title test bro
 		</a>
 		<!-- The Modal -->
 	</div>
-	<!--//banner -->
-
-	<!-- about -->
 	<div class="agile-about amcls-section">
-	<!-- about-bottom -->
 	<div class="agileits-about-btm">
         <div class="container">
 			<div class="tittle_head_Sodhis">
@@ -204,7 +198,6 @@ This is a title test bro
         </div>
     </div>
     </div>
-    <!-- emergency -->
     <div class="emergency_cases_amcls">
     <div class="emergency_cases_bt">
         <div class="container">
@@ -226,9 +219,7 @@ This is a title test bro
         </div>
         </div>
     </div>
-    <!-- //emergency -->
 
-    <!-- Clients -->
     <div class="tesimonials">
     <div class="tesimonials_tp">
             <div class="container">
@@ -353,7 +344,6 @@ This is a title test bro
             });
     </script>
 
-	<!-- modal -->
 	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -375,5 +365,4 @@ This is a title test bro
 			</div>
 		</div>
 	</div>
-<!-- //modal -->
 {% endblock %}

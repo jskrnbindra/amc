@@ -42,3 +42,7 @@ class MakeAppointment(FormView):
         print('Form invalid')
         print(form.errors)
         return super().form_invalid(form)
+
+
+class Treatments(TemplateView):
+    template_name = 'amcweb/treatments.html'
