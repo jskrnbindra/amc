@@ -470,10 +470,10 @@ b.fa.fa-caret-right {
 }
 
 .carousel .item.item2 {
-	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/1.jpg) no-repeat;
-	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/1.jpg) no-repeat;
-	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/1.jpg) no-repeat;
-	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/1.jpg) no-repeat;
+	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/camp1.jpg) no-repeat;
+	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/camp1.jpg) no-repeat;
+	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/camp1.jpg) no-repeat;
+	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/camp1.jpg) no-repeat;
 	background-size: cover;
 }
 
@@ -620,7 +620,7 @@ b.fa.fa-caret-right {
     font-size: 17px!important;
     margin-top: 1em;
     text-transform: none!important;
-    color: #000000;
+    color: #ffffff;
     font-weight: 500;
 }
 .heading-agileinfo span:after {
@@ -712,7 +712,7 @@ h4.agileinfo-head {
 /* //about-bottom */
 .emergency_cases_amcls{
     text-align: center;
-    background: url(../images/1.jpg) no-repeat 0px 0px;
+    background: url(../images/camp1.jpg) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -843,7 +843,7 @@ span.eme {
 
 .tesimonials {
 	text-align: center;
-    background: url(../images/3.jpg) no-repeat 0px 0px;
+    background: url(../images/panchkarma_collage.png) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
