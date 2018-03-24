@@ -470,34 +470,34 @@ b.fa.fa-caret-right {
 }
 
 .carousel .item.item2 {
-	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_logo1.png) no-repeat;
-	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_logo1.png) no-repeat;
-	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_logo1.png) no-repeat;
-	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_logo1.png) no-repeat;
-	background-size: contain;
+	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner22.png) no-repeat;
+	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner22.png) no-repeat;
+	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner22.png) no-repeat;
+	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner22.png) no-repeat;
+	background-size: cover;
 }
 
 .carousel .item.item3 {
-	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/3.jpg) no-repeat;
-	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/3.jpg) no-repeat;
-	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/3.jpg) no-repeat;
-	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/3.jpg) no-repeat;
+	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner23.png) no-repeat;
+	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner23.png) no-repeat;
+	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner23.png) no-repeat;
+	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner23.png) no-repeat;
 	background-size: cover;
 }
 
 .carousel .item.item4 {
-	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/4.jpg) no-repeat;
-	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/4.jpg) no-repeat;
-	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/4.jpg) no-repeat;
-	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/4.jpg) no-repeat;
+	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner24.png) no-repeat;
+	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner24.png) no-repeat;
+	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner24.png) no-repeat;
+	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner24.png) no-repeat;
 	background-size: cover;
 }
 
 .carousel .item.item5 {
-	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/4.jpg) no-repeat;
-	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/4.jpg) no-repeat;
-	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/4.jpg) no-repeat;
-	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/4.jpg) no-repeat;
+	background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner25.png) no-repeat;
+	background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner25.png) no-repeat;
+	background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner25.png) no-repeat;
+	background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/amc_banner25.png) no-repeat;
 	background-size: cover;
 }
 
@@ -2204,7 +2204,7 @@ ul.tag2:last-child {
 .footer_grid_list li,
 .address li {
 	display: block;
-	margin-bottom: 1em;
+	margin-bottom: .4em;
 }
 
 .footer_grid_list li i {
